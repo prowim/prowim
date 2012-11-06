@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<!-- $Id: log4j.xml 13398 2008-12-05 16:08:52Z wolff $ -->
+	<!--
+		| For more configuration infromation and examples see the Jakarta
+		Log4j | website: http://jakarta.apache.org/log4j
+	-->
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/"
+	debug="false">
+  <!-- ============================== -->
+  <!-- Append messages to the console -->
+  <!-- ============================== -->
+	<appender name="CONSOLE" class="org.apache.log4j.ConsoleAppender">
+		<param name="Target" value="System.out" />
+		<layout class="org.apache.log4j.PatternLayout">
+      <!-- The default pattern: Date Priority [Category] Message\n -->
+			<param name="ConversionPattern" value="%d{ABSOLUTE} %-5p [%c{1}] %m%n" />
+		</layout>
+	</appender>
+
+	<!-- For our own packages, we turn on debug logging -->	
+	<category name="de.ebcot" additivity="false">
+		<priority value="DEBUG" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	
+	<!-- UpdateRegistry is not very interesting, so this is only set to warn -->
+	<category name="de.ebcot.prowim.portal.update.UpdateRegistry" additivity="false">
+		<priority value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	
+	<!-- ModelEditorRegistration is not very interesting, so this is only set to warn -->
+	<category name="de.ebcot.prowim.portal.view.browserfunctions.ModelEditorFunctionFactory" additivity="false">
+		<priority value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	
+	<category name="de.ebcot.prowim.portal.MainController" additivity="false">
+		<priority value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</category>
+	
+  <!-- ======================= -->
+  <!-- Setup the Root category -->
+  <!-- ======================= -->
+	<root>
+		<!-- The default log level -->
+		<priority value="WARN" />
+		<appender-ref ref="CONSOLE" />
+	</root>
+
+</log4j:configuration>

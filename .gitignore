@@ -1,0 +1,10 @@
+.classpath
+.DS_Store
+.metadata/
+.apt_generated/
+ant_build/
+ant_dist/
+ant_test/
+ant_test_results/
+.svn/
+.com.apple*

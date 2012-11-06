@@ -1,0 +1,96 @@
+<!--
+  $Id: Prowim Model Editor,v 1.0 2009/10/12 $
+  Copyright (c) 2009, Ebcot GmbH. Oliver Wolff
+
+  The Editor to creating processes and workflows for ProWim.  
+-->
+<html>
+<head>
+    <title>ProWim Model Editor</title>
+  
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	<script type="text/javascript" src="js/ws/Soapclient.js"></script>
+  	<script type="text/javascript" src="js/prowim/EditorFunctions.js"></script>
+  	<script type="text/javascript" src="js/prowim/EditorProxy.js"></script>
+  	<script type="text/javascript" src="js/prowim/Entities.js"></script>
+
+	<style>
+		table {
+			text-align: left;
+			font-size: 12px;
+			font-family: verdana;
+			background: #c0c0c0;
+		}
+ 
+		table thead  {
+			cursor: pointer;
+		}
+ 
+		table thead tr,
+		table tfoot tr {
+			background: #c0c0c0;
+		}
+ 
+		table tbody tr {
+			background: #f0f0f0;
+		}
+ 
+		td, th {
+			border: 1px solid white;
+		}
+
+		body {
+		  background-color: #F8F8FF;
+		}
+
+		h1 {
+			color: #000000;
+			background-color: #FFE8BB;
+			font-size: 18px;
+			font-family: verdana;
+		}
+		h2 {
+			color: #ffffff;
+			background-color: #316AC5;
+			font-size: 16px;
+			font-family: verdana;
+		}
+		p {
+			font-size: 12px;
+			font-family: verdana;
+		}			
+	</style>
+
+	<style type="text/css">
+	a:link {color: #000000; text-decoration: none}
+	a:visited {color: #000000; text-decoration: none}
+	a:hover {color: #000000; background-color: #FFE8BB; text-decoration: none}
+	</style>
+
+</head>
+<body>
+
+<P><H1>&nbsp;&nbsp;ProWim Modelleditor</H1></P>
+
+<P><H2>&nbsp;&nbsp;&nbsp;Neuen Kernprozess erstellen</H2></P>
+<ul style='list-style-image:url(icons/new-bleu.png)'>
+	<LI><a href="prowim-model-editor.html" target='_self' style='font-weight:bold' alt="Sie haben die Möglichkeit ihr eigenes Prozessmodell zu erzeugen.">Neu</a>
+</UL>
+
+<P><H2>&nbsp;&nbsp;&nbsp;Bestehende Kernprozesse laden</H2></P>
+<script type="text/javascript">
+	var proceesArray = EditorProxy.getModels();
+	var Ausgabe = "<ul style='list-style-image:url(icons/process.png)'>";
+	for ( var i = 0; i < proceesArray.length; i++)
+	{
+		Ausgabe = Ausgabe + '<LI>' +
+		'<a href=\"prowim-model-editor.html?prowimid=' + proceesArray[i].id + '\" target=\"_self\"  style=\"font-weight:bold\">' +
+		proceesArray[i].name + '</a>';
+	}
+	Ausgabe = Ausgabe + '</UL>';
+	document.write(Ausgabe);
+</script>	
+<P>
+
+</body>
+</html>

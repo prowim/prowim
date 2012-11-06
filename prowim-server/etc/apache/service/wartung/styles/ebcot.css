@@ -1,0 +1,215 @@
+body { 
+	font-family: arial,Tahoma,verdana,helvetica,sans-serif;
+	font-size : 11px; 
+	margin:10px; 
+	color:#767676;
+	background-color: #ADC9B0;
+}
+
+.page_header {
+	background-image: url("../img/header.gif");	
+	width: 877px;
+	height: 105px;
+}
+
+.navi_div_inner {
+	height: 26px;
+	width: 867px;
+	border-right: 1px solid #00703F;
+	border-left: 1px solid #00703F;
+	background-color: #5C9370;
+	background: url("../img/navi_bgr.gif") repeat-x;
+}
+
+.navi_div {
+	width: 877px;
+	height: 26px;
+	background-image: url("../img/bg_shadow.gif");	
+}
+
+
+
+.navi_box {
+	background-color: #90B497;
+	border-top: 1px solid #ADC9B0;
+	border-left: 1px solid #ADC9B0;
+	height: 20px;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px 20px 0px 20px;
+	float:left;
+}
+
+.navi_box:hover {
+	background-color: #9FBCA5;
+	cursor: pointer;
+}
+
+#active {
+	border: 0px;
+	border-bottom:4px solid #00703F;
+	height: 16px;
+	background-color: #5C9370;
+	padding-top:6px;
+	cursor: default;
+}
+
+.main_nav:hover {
+	text-decoration: none;
+	}
+
+.frame {
+	background-image: url("../img/bg_shadow.gif");	
+	width: 877px;
+}
+
+.frame_inner {
+	border-top: 1px solid #00703F;
+	background-color: #EFF4E9;
+	border-right: 1px solid #00703F;
+	border-left: 1px solid #00703F;	
+	width: 867px;
+}
+
+.content {
+	padding:20px;
+	text-align: left;
+}
+
+.footer {
+	background-image: url("../img/footer.gif");	
+	width: 877px;
+	height: 33px;
+}
+
+.footer_content {
+	padding-top: 7px;
+}
+
+
+.line {
+	border-top: 1px solid #ADC9B0;	
+	padding: 5px;
+}
+
+.info_header {
+	background-color: #CAD7C3;
+	color: #666;
+	font-weight: bold;
+	height: 19px;
+}
+
+.info_text {
+	padding-top: 3px;	
+}
+
+.header_logo {
+	padding:3px 5px;
+	float: left;	
+}
+
+.info {
+	border: 1px solid #CAD7C3;	
+	padding: 10px;
+	background-color: #fff;
+}
+
+.customer_logo {
+	padding-right: 15px;
+	float: left;
+}
+
+a:link, a:visited, a:active {
+	color:#767676;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.wartung {
+	background: #fff url("../img/wartung_brd.gif") no-repeat;
+	border: 1px solid #CAD7C3;	
+	padding:10px;
+	background-color: #fff;
+	width: 400px;
+	height: 300px;
+}
+
+.wartung_text {
+	font-size: 40px;
+	font-weight: bold;
+	padding-top:100px;
+}
+
+a.lisa, a.lisa:hover, a.lisa:visited {
+    font-weight : bold;
+	color: #fff;
+	text-decoration: none;
+    display: block;
+	font-size:18px;
+	width: 266px;
+	height: 30px;
+	text-align: center;
+	padding-top: 8px;
+	background:transparent url(../img/button.gif) 0px 0px no-repeat;
+}
+
+
+a.lisa:hover
+{
+	background:transparent url(../img/button_hover.gif)  0px 0px no-repeat;	
+}
+
+.waitScreen {
+	font-size: 14px;
+	font-weight: bold;
+	text-align:left;
+	color:#555;
+	line-height: 18px;
+}
+
+.loader_icon {
+	padding:13px 10px;
+	float:left;
+}
+
+.wait_inner {
+	margin:20px;
+	border: 1px solid #CAD7C3;
+	background-color: #fff;
+}
+
+.wait_content {
+	padding:10px;
+}
+
+.lisa_logo {
+	margin: 30px 10px 30px 150px;
+	float: left;
+}
+
+
+#handbuch_info {
+	width: 300px;
+	height: 302px;
+}
+
+#java_info {
+	width: 460px;
+}
+
+.image_info_link {
+	float:left; 
+	overflow:auto;
+	padding-bottom: 10px; 
+	padding-right: 10px;
+}
+
+.line {
+	border-top: 1px solid #CAD7C3;
+	padding-bottom: 5px;
+	margin-top: 10px;
+	clear: left;
+}

@@ -1,0 +1,56 @@
+	<!--
+  $Id: Prowim Model Editor,v 1.0 2009/10/12 $
+  Copyright (c) 2009, Ebcot GmbH. Maziar Khodaei
+
+  The Editor to creating processes and workflows for ProWim.  
+-->
+<html>
+<head>
+    <title>ProWim Model Editor</title>
+  	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  	
+	<link rel="stylesheet" type="text/css" href="modelEditor.css">
+	
+	<link rel="stylesheet" href="js/jpicker/jPicker.css" type="text/css" />
+	<link rel="stylesheet" href="js/jpicker/css/jPicker-1.1.6.min.css" type="text/css" />
+
+	<script type="text/javascript">
+		mxBasePath = 'js/mxGraph';
+	</script>
+	
+	<script type="text/javascript" src="js/prowim/BrowserFunctionRegistry.js"></script>
+	
+	<script type="text/javascript" src="js/mxGraph/js/mxClient.js"></script>
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/jpicker/jpicker-1.1.6.js"></script>
+	<script type="text/javascript" src="js/shapes/activityShape.js"></script>
+	<script type="text/javascript" src="js/shapes/activityNestingShape.js"></script>
+	<script type="text/javascript" src="js/shapes/decisionShape.js"></script>
+	<script type="text/javascript" src="js/shapes/subProcessShape.js"></script>
+	<script type="text/javascript" src="js/prowim/ProwimEdgeHandler.js"></script> 
+	<script type="text/javascript" src="js/prowim/ApplicationEventsHandler.js"></script>
+	<script type="text/javascript" src="js/prowim/EditorFunctions.js"></script>
+	<script type="text/javascript" src="js/prowim/EditorProxy.js"></script>
+	<script type="text/javascript" src="js/prowim/EditorActions.js"></script>
+	<script type="text/javascript" src="js/prowim/Entities.js"></script>
+
+	<script type="text/javascript" src="js/prowim/EditorMain.js"></script>
+	<script type="text/javascript" src="js/prowim/EditorListener.js"></script>
+	
+	<script type="text/javascript" src="js/editorLauncher.js"></script>
+	
+</head>
+<body onload="startupEditor()">
+	<table id="splash" width="100%" height="100%" 
+		style="background:white;position:absolute;top:0px;left:0px;z-index:4;">
+		<tr>
+			<td align="center" valign="middle">
+				<img src="images/loading.gif">
+			</td>
+		</tr>
+	</table>
+	<div id="graph" class="base" >
+		<!-- Graph Here -->
+	</div>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jnlp codebase="http://subdomain.domain/jnlp" spec="1.0+">
+  <information>
+    <title>Datei öffnen</title>
+    <vendor>Ebcot Business Solutions GmbH</vendor>
+    <homepage href="index.html"/>
+    <description>Die Datei wird vom lokalen Betriebssystem geöffnet.</description>
+  </information>
+  <resources>
+    <j2se version="1.6+"/>
+    <jar href="./lib/openfile.jar"/>
+  </resources>
+    
+  <application-desc main-class="de.ebcot.prowim.filesystem.open.OpenFileApp">
+  <argument>filename</argument>
+  </application-desc>
+  <security>
+    <all-permissions/>
+  </security>
+</jnlp>

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!ELEMENT resources ((ratioGroups?),(group)*) >
+
+<!ELEMENT group ((group | action | image | attribute | label | enumAttribute | enumAttributeWithNull | enumFunction | composedText | text | menu)*) >
+<!ATTLIST group id CDATA #REQUIRED >
+
+
+<!ELEMENT ratioGroups (ratioGroup)+>
+<!ATTLIST ratioGroups id CDATA #REQUIRED >
+
+<!ELEMENT ratioGroup (perspective)+>
+<!ATTLIST ratioGroup value CDATA #REQUIRED >
+<!ATTLIST ratioGroup name CDATA #REQUIRED >
+<!ATTLIST ratioGroup ratios CDATA #REQUIRED >
+<!ATTLIST ratioGroup templates CDATA #REQUIRED >
+
+<!ELEMENT perspective EMPTY>
+<!ATTLIST perspective value CDATA #REQUIRED >
+<!ATTLIST perspective name CDATA #REQUIRED >
+
+
+<!ELEMENT action EMPTY >
+<!ATTLIST action id CDATA #REQUIRED >
+<!ATTLIST action label CDATA #IMPLIED>
+<!ATTLIST action mnemonic CDATA #IMPLIED >
+<!ATTLIST action accelerator CDATA #IMPLIED>
+<!ATTLIST action src CDATA #IMPLIED>
+<!ATTLIST action tooltip CDATA #IMPLIED>
+
+<!ELEMENT label EMPTY >
+<!ATTLIST label id CDATA #REQUIRED >
+<!ATTLIST label text CDATA #IMPLIED>
+<!ATTLIST label src CDATA #IMPLIED>
+<!ATTLIST label tooltip CDATA #IMPLIED>
+
+<!ELEMENT menu EMPTY >
+<!ATTLIST menu id CDATA #REQUIRED >
+<!ATTLIST menu label CDATA #IMPLIED>
+<!ATTLIST menu mnemonic CDATA #IMPLIED>
+<!ATTLIST menu src CDATA #IMPLIED>
+
+<!ELEMENT image EMPTY >
+<!ATTLIST image id CDATA #REQUIRED >
+<!ATTLIST image src CDATA #REQUIRED >
+
+<!ELEMENT text (#PCDATA)>
+<!ATTLIST text id CDATA #REQUIRED>
+<!ELEMENT composedText (#PCDATA|argument)*>
+<!ATTLIST composedText id CDATA #REQUIRED >
+
+<!ELEMENT argument EMPTY>
+<!ATTLIST argument index CDATA #REQUIRED>
+<!ATTLIST argument type (choice|date|number|time) #IMPLIED>
+<!ATTLIST argument style CDATA #IMPLIED>
+
+
+<!ELEMENT attribute EMPTY>
+<!ATTLIST attribute id CDATA #REQUIRED >
+<!ATTLIST attribute label CDATA #REQUIRED >
+<!ATTLIST attribute tooltip CDATA #IMPLIED >
+
+<!ELEMENT enumAttribute ( enum+ ) >
+<!ATTLIST enumAttribute id CDATA #REQUIRED >
+<!ATTLIST enumAttribute label CDATA #REQUIRED >
+<!ATTLIST enumAttribute tooltip CDATA #IMPLIED >
+
+<!ELEMENT enumAttributeWithNull ( enum+ ) >
+<!ATTLIST enumAttributeWithNull id CDATA #REQUIRED >
+<!ATTLIST enumAttributeWithNull label CDATA #REQUIRED >
+<!ATTLIST enumAttributeWithNull tooltip CDATA #IMPLIED >
+<!ATTLIST enumAttributeWithNull nullLabel CDATA #IMPLIED >
+
+
+<!ELEMENT enum EMPTY >
+<!ATTLIST enum label CDATA #REQUIRED >
+<!ATTLIST enum value CDATA #REQUIRED >
+
+<!ELEMENT enumFunction ( func+ ) >
+<!ATTLIST enumFunction id CDATA #REQUIRED >
+<!ATTLIST enumFunction label CDATA #REQUIRED >
+<!ATTLIST enumFunction tooltip CDATA #IMPLIED >
+
+<!ELEMENT func EMPTY >
+<!ATTLIST func function CDATA #REQUIRED >
+<!ATTLIST func description CDATA #REQUIRED >

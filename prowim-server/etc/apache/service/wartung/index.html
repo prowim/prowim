@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>Ebcot Business Solutions GmbH - Wartungsarbeiten</title>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+<script language="JavaScript" type="text/javascript" src="jscript/jquery-1.3.1.min.js"></script>
+<script language="JavaScript" type="text/javascript" src="jscript/jquery.blockUI.1.33.js"></script>
+<link rel="stylesheet" href="styles/ebcot.css" type="text/css" />
+<!--[if IE]>
+    <link rel="stylesheet" href="styles/ebcot_IE.css" type="text/css" />
+<![endif]-->
+
+<!--[if lt IE 7]>
+    <link rel="stylesheet" href="styles/ebcot_IE6.css" type="text/css" />
+<![endif]-->
+
+</head>
+	<body>
+		<center>
+			<div class="page_header"></div>
+			<div class="navi_div">
+				<div class="navi_div_inner">
+					<div class="navi_box" id="active">INFORMATION</div>
+					<a href="contact.html" class="main_nav"><div class="navi_box">KONTAKT</div></a>
+				</div>
+			</div>
+			<div class="frame">
+				<div class="frame_inner">
+					<div class="content">
+					<!-- MAIN CONTENT -->
+						<div class="info_header">
+							<img class="header_logo" src="img/icon_info.gif" border="0" alt="" /><div class="info_text">INFORMATION</div>
+						</div>
+						<div class="info" style="height: 52px;">
+							<a href="http://www.ebcot.de" target="_blank" class="image_info_link" id="customer_logo"><img src="img/customer/logo.gif" alt="" border="0" height="41" title="Hauptwebseite aufrufen ..."/></a>
+							Zurzeit werden keine Wartungsarbeiten durchgeführt.
+						</div>
+					</div>
+				</div>
+				<div class="footer">
+					<div class="footer_content">
+						<a href="http://www.ebcot.de" target="_blank" title="Webseite der Ebcot Business Solutions GmbH aufrufen ...">Ebcot Business Solutions GmbH</a>
+					</div>
+				</div>
+			</div>
+		</center>
+		
+		<!-- WAIT DIALOG -->
+		<div id="waitMessage" style="display:none;" class="waitScreen"> 
+			<div class="wait_inner">
+				<div class="loader_icon"><img src="img/loader.gif" alt="" border="0"/></div>
+				<div class="wait_content">START WURDE ANGESTOSSEN.<br />BITTE WARTEN ...</div>
+			</div>
+		</div> 
+		<!-- WAIT DIALOG ENDE-->
+	
+		<script language="JavaScript" type="text/javascript">
+			$.get("wartung.html", 
+				function(data){
+					if (data == 1)
+					{
+						$.get("wartung_content.html", 
+							function(data){
+								$(".content").html(data);
+						});
+					}
+			});
+			
+			var messageElement = $('#waitMessage');
+		    
+		    function screenblock () 
+		    { 
+		        $.blockUI(messageElement, { border: '2px solid #649875', width:'350px', background: '#EFF4E9'});
+		        setTimeout("$.unblockUI();",15000);
+
+		    } 
+		</script> 
+	</body>
+</html>

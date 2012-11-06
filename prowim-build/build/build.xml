@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-build" basedir="." default="deploy-dev">
+	
+	<import file="build-shared.xml"/>
+	
+	<property file="build-private.properties" />
+	
+	<property name="dir.deploy" value="${appserver.jboss.home}/server/${jboss.customer}/deploy"></property>
+	
+	<target name="deploy-server" depends="check.properties, server-dist" description="Copy the server ear to the appserver">
+		<copy todir="${dir.deploy}">
+			<fileset file="${project.server.dist.ear}"/>
+		</copy>
+		
+		<antcall target="refresh-appserver" />
+	</target>
+	
+	<target name="deploy-portal" depends="check.properties, portal-dist" description="Copy the portal war to the appserver">
+		<copy todir="${dir.deploy}">
+			<fileset file="${project.portal.dist.war}"/>
+		</copy>
+		
+		<antcall target="refresh-appserver" />
+	</target>
+	
+	<target name="deploy-jnlp" depends="check.properties, fileopener-dist" description="Copy the JNLP war to the appserver">
+		<copy todir="${dir.deploy}">
+			<fileset file="${project.fileopener.dist.war}"/>
+		</copy>
+		
+		<antcall target="refresh-appserver" />
+	</target>
+	
+    <target name="deploy-dev" depends="deploy-portal, deploy-server, deploy-jnlp" description="Deploys server, jnlp and portal to the appserver">
+    </target>
+	
+	<target name="check.properties" description="Checks if build-properties are available">
+		<available file="build-private.properties" property="properties.available" />
+		<fail unless="properties.available" message="Please create build-private.properties"/>
+	</target>
+	
+	<target name="refresh-appserver" description="Deletes temporary directories from appserver">
+		<delete dir="${appserver.jboss.home}/server/${jboss.customer}/tmp" failonerror="false" verbose="false"/>
+		<delete dir="${appserver.jboss.home}/server/${jboss.customer}/work" failonerror="false" verbose="false"/>
+	</target>
+	
+	<target name="deploy-customer" depends="check.properties, portal-dist">
+		<foreach target="init-customer-dir" list="${deploy.customers}" param="customer.dir" inheritall="true" inheritrefs="false" />
+	</target>
+	
+	<target name="init-customer-dir">
+		<property name="customer.source.dir" value="${root.build}/customer/${customer.dir}"></property>
+		<available type="dir" file="${customer.source.dir}" property="customer.source.dir.exists"/>
+		<fail unless="customer.source.dir.exists" message="Unknown customer"/>
+		
+		<property name="deploy.dir" value="${deploy.tmp.dir}/${customer.dir}" />
+		<mkdir dir="${deploy.dir}"/>
+		
+		<!-- Build customer specifix ear -->
+		<delete>
+			<fileset file="${project.server.dist.ear}" />
+		</delete>
+		<property name="deploy.customer.dms.properties" value="${customer.source.dir}/dms/alfresco/webserviceclient.properties"></property>
+		<available type="file" file="${deploy.customer.dms.properties}" property="customer.dms.properties.available"></available>
+		<fail unless="customer.dms.properties.available" message="webserviceclient.properties not found for ${customer.dir}"/>
+		<antcall target="server-dist" />
+		
+		<copy todir="${deploy.dir}">
+			<fileset dir="${customer.source.dir}/appserver" />
+		</copy>
+		
+		<copy todir="${deploy.dir}/deploy" failonerror="true">
+			<fileset file="${project.server.dist.ear}"/>
+			<fileset file="${project.portal.dist.war}"/>
+			<fileset file="${project.fileopener.dist.war}"/>
+		</copy>
+	</target>
+</project>

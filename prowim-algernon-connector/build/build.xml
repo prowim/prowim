@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-algernon-connector" basedir="." default="main">
+
+	<import file="../../prowim-build/build/build-shared.xml"/>
+
+	<property name="project.source.dir" value="${root.connector}/src/" />
+	<property name="project.test.source.dir" value="${root.connector}/test/" />
+	<property name="project.test.build.dir" value="${root.connector}/test-classes/" />
+	<property name="project.lib.dir" value="${root.connector}/lib/" />
+	<property name="build.debug" value="true" />
+	<property name="build.debuglevel" value="lines,vars,source" />
+
+	<path id="project.classpath">
+		<fileset dir="${project.lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+		<pathelement location="${project.data.dist.jar}"/>
+	</path>
+
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: init                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="init">
+		<init-project current.project="${root.connector}/build"/>
+		<mkdir dir="${dir.dist.jar}"/>
+		<mkdir dir="${dir.dist.rar}"/>
+	</target>
+
+	<target name="build-dependencies">
+		<antcall target="data-dist">
+		</antcall>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: compile                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="compile-connector" depends="init, build-dependencies">
+		<javac debug="${build.debug}" debuglevel="${build.debuglevel}" srcdir="${project.source.dir}" destdir="${dir.build}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}">
+			<classpath refid="project.classpath" />
+		</javac>
+	</target>
+
+	<!-- ================================= 
+          target: create-rar              
+         ================================= -->
+	<target name="create-connector-rar" depends="compile-connector">
+		<jar destfile="${project.connector.dist.rar}">
+			<fileset dir="${dir.build}">
+				<include name="**/*.class"/>
+			</fileset>
+			<metainf dir="../etc/RAR/META-INF">
+				<include name="ra.xml"/>
+			</metainf>
+		</jar>
+	</target>
+
+	<!-- - - - - - - - - - - - - - - - - - 
+          target: create-connector-jar                      
+         - - - - - - - - - - - - - - - - - -->
+	<target name="create-connector-jar" depends="compile-connector">
+		<jar destfile="${project.connector.dist.jar}">
+			<fileset dir="${dir.build}">
+				<include name="org/prowim/jca/connector/algernon/Connection.class"/>
+				<include name="org/prowim/jca/connector/algernon/DataSource.class"/>
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="connector.compile.tests" depends="create-connector-rar">
+		<javac debug="true" srcdir="${src.test}" deprecation="false" destdir="${dir.test}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath refid="classpath.junit"/>
+			<classpath>
+				<pathelement location="${project.connector.dist.rar}"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="connector.run.tests" depends="connector.compile.tests">
+		<junit printsummary="true" >
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath refid="classpath.junit"/>
+			<classpath>
+				<pathelement location="${project.connector.dist.rar}"/>
+			</classpath>
+			<classpath>
+				<path location="${dir.test}">
+				</path>
+			</classpath>
+
+			<formatter type="xml"/>
+
+			<batchtest fork="yes" todir="${dir.test.results}">
+				<fileset dir="${src.test}">
+					<include name="**/*Test.java"/>
+					<exclude name="**/AllTests.java"/>
+				</fileset>
+			</batchtest>
+
+		</junit>
+	</target>
+
+	<target name="build-connector-dist" depends="clean-project,create-connector-rar,create-connector-jar,connector.run.tests" description="Builds the RAR for deployment and algernon-connector.jar as third party for prowim-server" />
+
+	<!--default-->
+	<target name="main" depends="build-connector-dist"/>
+
+</project>

@@ -1,0 +1,4 @@
+<jboss-web>
+	<context-root>/application</context-root>
+   <security-domain>java:/jaas/JBossWS3</security-domain>
+</jboss-web>

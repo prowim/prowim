@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+
+<jboss-app>
+    <loader-repository>
+  Default:archive=prowimservices.ear 
+  </loader-repository>
+    <module>
+        <service>prowim-services.sar</service>
+    </module>
+    <module>
+        <service>prowim-algernon-connector.rar</service>
+    </module>
+</jboss-app>

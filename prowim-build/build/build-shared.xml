@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- This file only contains references to build targets. It is intended to contain resources used by all build-files -->
+<project name="prowim-shared" basedir="." default="dummy">
+
+	<import file="properties.xml"/>
+	
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="${root.build}/lib/ant-contrib.jar" />
+		</classpath>
+	</taskdef>
+	
+	<path description="path with all the RAP libraries" id="lib.rap.classpath">
+        <fileset dir="../../prowim-portal/etc/rap/plugins/" includes="*.jar" excludes="*source*.jar"/>
+    </path>
+	
+	<path id="classpath.junit">
+		<fileset dir="${root.build}/lib"></fileset>
+	</path>
+    
+	<macrodef name="init-project">
+		<attribute name="current.project" />
+		<sequential>
+			<mkdir dir="@{current.project}/${dir.build}" />
+			<mkdir dir="@{current.project}/${dir.test}" />
+			<mkdir dir="@{current.project}/${dir.test.results}" />
+			<mkdir dir="@{current.project}/${dir.dist}" />
+		</sequential>
+	</macrodef>
+	
+	<target name="clean-project">
+		<delete failonerror="false" dir="${dir.build}" />
+		<delete failonerror="false" dir="${dir.test}" />
+		<delete failonerror="false" dir="${dir.test.results}" />
+		<delete failonerror="false" dir="${dir.dist}" />
+	</target>
+    
+	<target name="dummy" description="Does nothing"></target>
+	
+	<target name="data-dist">
+		<ant antfile="${root.data}/build/build.xml" target="main" dir="${root.data}/build" />
+	</target>
+	
+	<target name="modeleditor-dist">
+		<ant antfile="${root.editor}/build/build.xml" target="main" dir="${root.editor}/build" />
+	</target>
+	
+	<target name="ebcot-rap-framework-dist">
+		<ant antfile="${root.ebcot-rap-framework}/build/build.xml" target="main" dir="${root.ebcot-rap-framework}/build" />
+	</target>
+	
+	<target name="connector-dist">
+		<ant antfile="${root.connector}/build/build.xml" target="main" dir="${root.connector}/build" />
+	</target>
+	
+	<target name="jboss-dist">
+		<ant antfile="${root.dir}/prowim-jboss/build/build.xml" target="main" dir="${root.jboss}/build" />
+	</target>
+	
+	<target name="portal-dist">
+		<ant antfile="${root.portal}/build/build.xml" target="main" dir="${root.portal}/build" />
+	</target>
+	
+	<target name="server-dist">
+		<ant antfile="${root.server}/build/build.xml" target="main" dir="${root.server}/build" />
+	</target>
+	
+	<target name="fileopener-dist">
+		<ant antfile="${root.fileopener}/build/build.xml" target="main" dir="${root.fileopener}/build" />
+	</target>
+</project>

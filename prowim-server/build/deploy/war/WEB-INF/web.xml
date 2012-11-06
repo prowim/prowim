@@ -1,0 +1,12 @@
+
+<web-app>
+  <servlet>
+    <servlet-name>prowim</servlet-name>
+    <servlet-class>de.ebcot.prowim.services.web.jnlp.JNLPGeneratorServlet</servlet-class>
+    <display-name>Servlet for prowim jnlp</display-name>
+  </servlet>
+   <servlet-mapping>
+    <servlet-name>prowim</servlet-name>
+    <url-pattern>/</url-pattern>
+   </servlet-mapping>
+</web-app>

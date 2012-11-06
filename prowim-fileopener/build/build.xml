@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-fileopener" basedir="." default="main">
+
+	<import file="../../prowim-build/build/build-shared.xml" />
+
+	<target name="fileopener.build.jar">
+		<mkdir dir="${dir.build.jar}" />
+
+		<javac debug="true" srcdir="${src}" deprecation="false" destdir="${dir.build.jar}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath>
+				<fileset dir="../lib"></fileset>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="fileopener.dist.jar" depends="fileopener.build.jar">
+			<mkdir dir="${dir.dist.jar}" />
+
+			<jar destfile="${project.fileopener.dist.jar}">
+				<fileset dir="${dir.build.jar}" />
+			</jar>
+		
+			<signjar jar="${project.fileopener.dist.jar}" signedjar="${project.fileopener.dist.jar}" keystore="${keystore.unknown.file}" alias="${keystore.unknown.username}" storepass="${keystore.unknown.password}" />
+		</target>
+	
+	<target name="fileopener.dist.war" depends="fileopener.build.war">
+		<mkdir dir="${dir.dist.war}" />
+
+		<war destfile="${project.fileopener.dist.war}" needxmlfile="false">
+			<fileset dir="${dir.build.war}" />
+		</war>
+	</target>
+	
+
+	<target name="fileopener.build.war" depends="fileopener.dist.jar">
+		<mkdir dir="${dir.build.war}" />
+
+		<copy todir="${dir.build.war}">
+			<fileset dir="deploy/war/" />
+			<fileset dir="../jsp" />
+			<fileset file="${project.fileopener.dist.jar}" />
+		</copy>
+	</target>
+
+	<target name="main" depends="clean-project, fileopener.dist.war">
+	</target>
+
+</project>

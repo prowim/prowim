@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<connector id="Connector_ID" version="1.5" xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/connector_1_5.xsd"> 
+	<description></description>
+	<display-name>algernon-connector</display-name>
+ 	<vendor-name>ProWim.org</vendor-name>
+  	<eis-type>Algernon-Connector</eis-type>
+  	<resourceadapter-version>1.0</resourceadapter-version>                                  
+  	<resourceadapter>
+  	 <outbound-resourceadapter>
+  	 	<connection-definition>
+  	 		<managedconnectionfactory-class>org.prowim.jca.connector.algernon.impl.GenericManagedConnectionFactory</managedconnectionfactory-class>
+  	 		<config-property>
+  	 			<config-property-name>ProtegeProject</config-property-name>
+  	 			<config-property-type>java.lang.String</config-property-type>
+  	 		</config-property>
+  	 		<config-property>
+  	 			<config-property-name>ProtegeUser</config-property-name>
+  	 			<config-property-type>java.lang.String</config-property-type>
+  	 		</config-property>
+  	 		<config-property>
+  	 			<config-property-name>ProtegePassword</config-property-name>
+  	 			<config-property-type>java.lang.String</config-property-type>
+  	 		</config-property>
+  	 		<connectionfactory-interface>org.prowim.jca.connector.algernon.DataSource</connectionfactory-interface>
+  	 		<connectionfactory-impl-class>org.prowim.jca.connector.algernon.impl.AlgernonDataSource</connectionfactory-impl-class>
+  	 		<connection-interface>org.prowim.jca.connector.algernon.Connection</connection-interface>
+  	 		<connection-impl-class>org.prowim.jca.connector.algernon.impl.AlgernonConnection</connection-impl-class>
+  	 	</connection-definition>
+  	 	<transaction-support>NoTransaction</transaction-support>
+  	 	<authentication-mechanism>
+  	 		<authentication-mechanism-type>BasicPassword</authentication-mechanism-type>
+  	 		<credential-interface>javax.resource.spi.security.PasswordCredential</credential-interface>
+  	 	</authentication-mechanism>
+  	 	<reauthentication-support>false</reauthentication-support>
+  	 </outbound-resourceadapter>
+  	</resourceadapter>
+</connector>

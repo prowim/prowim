@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-jboss" basedir="." default="main">
+	
+	<import file="../../prowim-build/build/build-shared.xml"/>
+	
+	<target name="jboss.compile-jar">
+		<init-project current.project="."/>
+		
+		<copy todir="${dir.build}/" overwrite="true">
+			<fileset dir="../">
+				<include name="lib/**"/>
+				<exclude name="lib/src/**"/>
+				<include name="META-INF/**"/>
+				<include name="plugin.xml"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="create-jboss-dist" depends="jboss.compile-jar">
+		<jar jarfile="${project.jboss.dist.jar}" filesetmanifest="merge">
+			<fileset dir="${dir.build}" />
+		</jar>
+	</target>
+	
+	<target name="main" depends="clean-project, create-jboss-dist" />
+</project>

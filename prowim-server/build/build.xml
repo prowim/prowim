@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-server" basedir="." default="main">
+
+	<import file="../../prowim-build/build/build-shared.xml" />
+
+	<target name="build-dependencies">
+		<antcall target="data-dist">
+		</antcall>
+		<antcall target="connector-dist">
+		</antcall>
+	</target>
+
+	<path id="classpath.server">
+		<pathelement location="${project.connector.dist.jar}" />
+		<pathelement location="${project.data.dist.jar}" />
+		<fileset dir="../lib" />
+	</path>
+
+	<target name="server.compile.ejb-jar" depends="build-dependencies">
+		<init-project current.project="." />
+
+		<mkdir dir="${dir.build.ejb-jar}" />
+
+		<javac debug="true" srcdir="${src}" deprecation="false" destdir="${dir.build.ejb-jar}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<exclude name="org/prowim/services/aspects/security/*.java" />
+			<exclude name="org/prowim/services/aspects/security/login/*.java" />
+
+			<classpath refid="classpath.server" />
+		</javac>
+
+		<copy todir="${dir.build.ejb-jar}/" overwrite="true">
+			<fileset dir="${src}">
+				<exclude name="**/*.java" />
+				<exclude name="org/prowim/services/aspects/security/*" />
+				<exclude name="org/prowim/services/aspects/security/login/*" />
+			</fileset>
+		</copy>
+
+		<copy todir="${dir.build.ejb-jar}/" overwrite="true">
+			<fileset dir="deploy${dir.extension.ejb-jar}">
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="server.compile.tests" depends="server.compile.ejb-jar">
+		<javac debug="true" srcdir="${src.test}" deprecation="false" destdir="${dir.test}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath refid="classpath.server" />
+			<classpath refid="classpath.junit" />
+			<classpath>
+				<pathelement location="${project.server.dist.ejb-jar}" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="server.run.tests" depends="server.compile.tests">
+		<junit printsummary="true">
+			<classpath refid="classpath.server" />
+			<classpath refid="classpath.junit" />
+			<classpath>
+				<pathelement location="${project.server.dist.ejb-jar}" />
+				<path location="${dir.test}">
+				</path>
+			</classpath>
+
+			<formatter type="xml" />
+
+			<batchtest fork="yes" todir="${dir.test.results}">
+				<fileset dir="${src.test}">
+					<include name="**/*Test.java" />
+					<exclude name="**/AllTests.java" />
+				</fileset>
+			</batchtest>
+
+		</junit>
+	</target>
+
+	<target name="server.dist.ejb-jar" depends="server.compile.ejb-jar">
+		<mkdir dir="${dir.dist.ejb-jar}" />
+		<jar destfile="${project.server.dist.ejb-jar}">
+			<fileset dir="${dir.build.ejb-jar}">
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="server.compile.sar" depends="build-dependencies, server.compile.ejb-jar">
+		<init-project current.project="." />
+
+		<mkdir dir="${dir.build.sar}" />
+
+		<javac debug="true" srcdir="${src}" deprecation="false" destdir="${dir.build.sar}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<include name="org/prowim/services/aspects/security/*.java" />
+			<include name="org/prowim/services/aspects/security/login/*.java" />
+
+			<classpath refid="classpath.server" />
+			<classpath>
+				<dirset dir="${dir.build.ejb-jar}">
+				</dirset>
+			</classpath>
+		</javac>
+
+		<copy todir="${dir.build.sar}/" overwrite="true">
+			<fileset dir="${src}">
+				<exclude name="**/*.java" />
+				<include name="org/prowim/services/aspects/security/*" />
+				<include name="org/prowim/services/aspects/security/login/*" />
+			</fileset>
+		</copy>
+
+		<copy todir="${dir.build.sar}/" overwrite="true">
+			<fileset dir="deploy${dir.extension.sar}">
+			</fileset>
+		</copy>
+
+	</target>
+
+	<target name="server.dist.sar" depends="server.compile.sar">
+		<mkdir dir="${dir.dist.sar}" />
+		<jar destfile="${project.server.dist.sar}">
+			<fileset dir="${dir.build.sar}">
+			</fileset>
+		</jar>
+	</target>
+
+	<target name="server.build.ear" depends="server.dist.ejb-jar, server.dist.sar">
+		<mkdir dir="${dir.build.ear}" />
+
+		<copy todir="${dir.build.ear}/" overwrite="true">
+			<fileset dir="deploy${dir.extension.ear}">
+			</fileset>
+			<fileset file="${project.server.dist.sar}" />
+			<fileset file="${project.server.dist.ejb-jar}" />
+			<fileset file="${project.connector.dist.rar}" />
+		</copy>
+
+		<!-- copy custom dms-properties file, if deploying for customer -->
+		<if>
+			<available type="file" file="${deploy.customer.dms.properties}">
+			</available>
+			<then>
+				<echo message="copy webserviceclient.properties" />
+				<copy todir="${dir.build.ear}/alfresco/" overwrite="true">
+					<fileset file="${deploy.customer.dms.properties}" />
+				</copy>
+			</then>
+		</if>
+
+		<mkdir dir="${dir.build.ear}/lib" />
+
+		<copy todir="${dir.build.ear}/lib" flatten="true" overwrite="true">
+			<fileset dir="${root.connector}/lib">
+				<include name="*.jar" />
+			</fileset>
+			<fileset dir="../lib">
+				<include name="joda-time-1.6.jar" />
+				<include name="commons-lang.jar" />
+				<include name="alfresco/*.jar" />
+			</fileset>
+			<fileset file="${project.connector.dist.jar}" />
+			<fileset file="${project.data.dist.jar}" />
+		</copy>
+
+	</target>
+
+	<target name="server.dist.ear" depends="server.build.ear">
+		<mkdir dir="${dir.dist.ear}" />
+
+		<jar destfile="${project.server.dist.ear}">
+			<fileset dir="${dir.build.ear}" />
+		</jar>
+	</target>
+
+
+	<target name="main" depends="clean-project, server.run.tests, server.dist.ear">
+	</target>
+
+</project>

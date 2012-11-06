@@ -1,0 +1,92 @@
+<project>
+	<!-- Projekt spezifische Einstellungen -->
+	
+	<property name="source.encoding" value="UTF-8" />
+	<property name="source.java.version" value="1.6" />
+	<property name="ant.build.javac.target" value="${source.java.version}" description="ant magic target version property" />
+	
+	<!-- Defaults. -->
+	<property name="root.dir" location="../.."/>
+	<property name="project.name.build" value="prowim-build" />
+	<property name="project.name.server" value="prowim-server" />
+	<property name="project.name.portal" value="prowim-portal" />
+	<property name="project.name.editor" value="prowim-model-editor" />
+	<property name="project.name.data" value="prowim-data" />
+	<property name="project.name.ebcot-rap-framework" value="ebcot-rap-framework" />
+	<property name="project.name.algernon-connector" value="prowim-algernon-connector" />
+	<property name="project.name.jboss" value="prowim-jboss" />
+	<property name="project.name.fileopener" value="prowim-fileopener" />
+	
+	<property name="project.name" value="prowim" />
+	<property name="project.version" value="trunk" />
+
+	<property name="root.build" value="${root.dir}/${project.name.build}"/>
+	<property name="root.server" value="${root.dir}/${project.name.server}"/>
+	<property name="root.portal" value="${root.dir}/${project.name.portal}"/>
+	<property name="root.editor" value="${root.dir}/${project.name.editor}"/>
+	<property name="root.data" value="${root.dir}/${project.name.data}"/>
+	<property name="root.ebcot-rap-framework" value="${root.dir}/${project.name.ebcot-rap-framework}" />
+	<property name="root.connector" value="${root.dir}/${project.name.algernon-connector}"/>
+	<property name="root.jboss" value="${root.dir}/${project.name.jboss}"/>
+	<property name="root.fileopener" value="${root.dir}/${project.name.fileopener}"/>
+	
+	<property name="keystore.unknown.file" location="${root.build}/build/ssl/unknown.store" />
+	<property name="keystore.unknown.username" value="lisa" />
+	<property name="keystore.unknown.password" value="lisaminelli" />
+
+	<property name="src" value="../src" />
+	<property name="src.test" value="../test" />
+	<property name="dir.build" value="ant_build/"/>
+	<property name="dir.test" value="ant_test/"/>
+	<property name="dir.test.results" value="ant_test_results/"/>
+	<property name="dir.dist" value="ant_dist/"/>
+	
+	<property name="dir.extension.jar" value="/jar/" />
+	<property name="dir.extension.rar" value="/rar/" />
+	<property name="dir.extension.war" value="/war/" />
+	<property name="dir.extension.sar" value="/sar/" />
+	<property name="dir.extension.ejb-jar" value="/ejb-jar/" />
+	<property name="dir.extension.ear" value="/ear/" />
+	
+	<property name="dir.build.jar" value="${dir.build}${dir.extension.jar}"/>
+	<property name="dir.build.sar" value="${dir.build}${dir.extension.sar}"/>
+	<property name="dir.build.ejb-jar" value="${dir.build}${dir.extension.ejb-jar}"/>
+	<property name="dir.build.ear" value="${dir.build}${dir.extension.ear}"/>
+	<property name="dir.build.war" value="${dir.build}${dir.extension.war}"/>
+	
+	<property name="dir.dist.jar" value="${dir.dist}${dir.extension.jar}/"/>
+	<property name="dir.dist.rar" value="${dir.dist}${dir.extension.rar}/"/>
+	<property name="dir.dist.war" value="${dir.dist}${dir.extension.war}/"/>
+	<property name="dir.dist.sar" value="${dir.dist}${dir.extension.sar}/"/>
+	<property name="dir.dist.ejb-jar" value="${dir.dist}${dir.extension.ejb-jar}/"/>
+	<property name="dir.dist.ear" value="${dir.dist}${dir.extension.ear}/"/>
+	
+	<property name="project.prowim-modeleditor.jarfile" value="prowim-model-editor.jar" />
+	<property name="project.connector.rarfile" value="${project.name.algernon-connector}.rar"/>
+	<property name="project.connector.jarfile" value="${project.name.algernon-connector}.jar"/>
+	<property name="project.editor.jarfile" value="org.prowim.rap.modeleditor_2.0.0.jar" />
+	<property name="project.ebcot-rap-framework.jarfile" value="org.prowim.rap.framework_2.0.0.jar" />
+	<property name="project.server.jarfile" value="prowim-ejb.jar" />
+	<property name="project.server.earfile" value="prowimservices.ear" />
+	<property name="project.server.sarfile" value="prowim-services.sar" />
+	<property name="project.data.jarfile" value="org.prowim.data_2.0.0.jar" />
+	<property name="project.portal.jarfile" value="org.prowim.portal_2.0.0.jar" />
+	<property name="project.portal.warfile" value="org.prowim.portal_2.0.0.war" />
+	<property name="project.fileopener.jarfile" value="fileopener.jar" />
+	<property name="project.fileopener.warfile" value="prowim-jnlp.war" />
+	
+	<property name="project.ebcot-rap-framework.dist.jar" value="${root.ebcot-rap-framework}/build/${dir.dist}${project.ebcot-rap-framework.jarfile}" />
+	<property name="project.editor.dist.jar" value="${root.editor}/build/${dir.dist.jar}${project.editor.jarfile}" />
+	<property name="project.data.dist.jar" value="${root.data}/build/${dir.dist}${project.data.jarfile}" />
+	<property name="project.portal.dist.jar" value="${root.portal}/build/${dir.dist.jar}/${project.portal.jarfile}" />
+	<property name="project.portal.dist.war" value="${root.portal}/build/${dir.dist.war}/${project.portal.warfile}" />
+	<property name="project.connector.dist.jar" value="${root.connector}/build/${dir.dist.jar}/${project.connector.jarfile}" />
+	<property name="project.connector.dist.rar" value="${root.connector}/build/${dir.dist.rar}/${project.connector.rarfile}" />
+	<property name="project.server.dist.sar" value="${root.server}/build/${dir.dist.sar}/${project.server.sarfile}" />
+	<property name="project.server.dist.ejb-jar" value="${root.server}/build/${dir.dist.ejb-jar}/${project.server.jarfile}" />
+	<property name="project.server.dist.ear" value="${root.server}/build/${dir.dist.ear}/${project.server.earfile}" />
+	<property name="project.fileopener.dist.jar" value="${root.fileopener}/build/${dir.dist.jar}/${project.fileopener.jarfile}" />
+	<property name="project.fileopener.dist.war" value="${root.fileopener}/build/${dir.dist.war}/${project.fileopener.warfile}" />
+	
+	<property name="project.jboss.dist.jar" value="${root.dir}/prowim-jboss/build/${dir.dist}/org.prowim.jboss_1.0.0.jar" />
+</project>

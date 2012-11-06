@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-rap-framework" basedir="." default="main">
+	
+	<property name="project.framework.jarfile" value="ebcot-rap-framework.jar" />
+	
+	<import file="../../prowim-build/build/build-shared.xml"/> 
+	
+	<target name="framework.dist" depends="framework.build">
+		<jar jarfile="${project.ebcot-rap-framework.dist.jar}" filesetmanifest="merge">
+			<fileset dir="${dir.build}" />
+		</jar>
+	</target>
+
+	<target name="framework.compile">
+		<init-project current.project="."/>
+		
+		<javac debug="true" deprecation="false" destdir="${dir.build}" encoding="${source.encoding}" fork="true" source="${source.java.version}" target="${source.java.version}" verbose="false">
+            <classpath refid="lib.rap.classpath"/>
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+        	<src path="../src/"/>
+        </javac>
+		
+	</target>
+	
+	<target name="framework.build" depends="framework.compile">
+		<copy todir="${dir.build}/" overwrite="true">
+			<fileset dir="../" >
+				<include name="lib/**"/>
+				<include name="img/**"/>
+				<include name="META-INF/**"/>
+				<include name="plugin.xml"/>
+			</fileset>
+			<fileset dir="../src/" >
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="framework.compile.tests" depends="framework.dist">
+			<javac debug="true" srcdir="${src.test}" deprecation="false" destdir="${dir.test}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+				<classpath refid="lib.rap.classpath"/>
+				<classpath>
+					<fileset dir="../lib/" includes="*.jar" />
+				</classpath>
+				<classpath refid="classpath.junit"/>
+				<classpath>
+					<pathelement location="${project.ebcot-rap-framework.dist.jar}"/>
+				</classpath>
+			</javac>
+		</target>
+		
+		<target name="framework.run.tests" depends="framework.compile.tests">
+			<junit printsummary="true" >
+				<classpath refid="lib.rap.classpath"/>
+				<classpath>
+					<fileset dir="../lib/" includes="*.jar" />
+				</classpath>
+				<classpath refid="classpath.junit"/>
+				<classpath>
+					<pathelement location="${project.ebcot-rap-framework.dist.jar}"/>
+					<path location="${dir.test}"></path>
+				</classpath>
+
+				<formatter type="xml"/>
+				
+				<batchtest fork="yes" todir="${dir.test.results}">
+				    <fileset dir="${src.test}">
+				      <include name="**/*Test.java"/>
+				      <exclude name="**/AllTests.java"/>
+				    </fileset>
+				  </batchtest>
+
+			</junit>
+		</target>
+		
+	<target name="main" depends="clean-project,framework.run.tests,framework.dist" description="Does a fresh compile of Ebcot RAP Framework" />
+
+</project>

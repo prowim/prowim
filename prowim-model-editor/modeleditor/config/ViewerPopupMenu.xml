@@ -1,0 +1,298 @@
+<!--
+ $Id: workflowEditor.xml,v 1.0 18/10/2009 Maziar Khodaei$
+ Copyright (c) 2009, Ebcot GmbH
+ 
+ Create Popup menus.
+ 
+ This file is part of ProWim.
+
+ProWim is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProWim is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProWim.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von ProWim.
+
+ProWim ist Freie Software: Sie können es unter den Bedingungen
+der GNU General Public License, wie von der Free Software Foundation,
+Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+ProWim wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+Siehe die GNU General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+ -->
+
+<mxEditor>
+	<ui>
+		<resource basename="resources/mxApplication"/>
+	</ui>
+	<mxDefaultPopupMenu as="popupHandler">	
+	  	<add as="addKnowledgeObject" action="addKnowledgeObject" if="addKnowledgeObject"/>
+		<add as="showSubProcess" action="showSubProcess" if="subprocess"/>
+		<add as="showProcess" action="showProcess" if="processLandscape"/>
+			
+    	<condition name="subprocess"><![CDATA[
+  			function (editor, cell, evt)
+  			{
+    			return cell.getAttribute('prowimtype') == 'SUBPROCESS';
+  			}
+		]]></condition>
+    	<condition name="processLandscape"><![CDATA[
+  			function (editor, cell, evt)
+  			{
+    			return cell.getAttribute('prowimtype') == 'PROCESS_LANDSPACE';
+  			}
+		]]></condition>
+		
+		<condition name="addKnowledgeObject"><![CDATA[
+  			function (editor, cell, evt)
+  			{
+  				var prowimType = cell.getAttribute('prowimtype');
+  				if ( (prowimType != 'SWIMLANE') && (prowimType != 'GROUP') && (prowimType != 'PROCESSTYPE_LANDSPACE') && (prowimType != 'PROCESS_LANDSPACE')) 
+  					{
+	    				return true;
+    				}
+    			else
+    			{
+    				return false;
+    			}
+    		}
+		]]></condition>
+		
+	</mxDefaultPopupMenu>
+	
+		
+	<include name="config/KeyhandlerCommons.xml"/>
+	<Array as="actions">
+			<add as="showxml"><![CDATA[
+			function (editor)
+			{
+				var enc = new mxCodec(mxUtils.createXmlDocument());
+				var node = enc.encode(editor.graph.getModel());
+						
+				mxUtils.popup(mxUtils.getPrettyXml(node));
+			}
+		]]></add>
+
+		<add as="openHref"><![CDATA[
+			function (editor, cell)
+			{
+				cell = cell || editor.graph.getSelectionCell();
+				
+				if (cell == null)
+				{
+					cell = editor.graph.getCurrentRoot();
+
+					if (cell == null)
+					{
+						cell = editor.graph.getModel().getRoot();
+					}
+				}
+
+				if (cell != null)
+				{
+					var href = cell.getAttribute('href');
+					
+					if (href != null && href.length > 0)
+					{
+						window.open(href);
+					}
+					else
+					{
+						mxUtils.alert('No URL defined. Showing properties...');
+					}
+				}
+			}
+		]]></add>
+		<add as="editStyle"><![CDATA[
+			function (editor)
+			{
+				var cell = editor.graph.getSelectionCell();
+				
+				if (cell != null)
+				{
+					var model = editor.graph.getModel();
+					var style = mxUtils.prompt(mxResources.get('enterStyle'), model.getStyle(cell) || '');
+
+					if (style != null)
+					{
+						model.setStyle(cell, style);
+					}
+				}
+			}
+		]]></add>
+		<add as="fillColor"><![CDATA[
+			function (editor)
+			{
+				var color = mxUtils.prompt(mxResources.get('enterColorname'), 'red');
+				
+				if (color != null)
+				{
+					editor.graph.model.beginUpdate();
+					try
+					{
+						editor.graph.setCellStyles("strokeColor", color);
+						editor.graph.setCellStyles("fillColor", color);
+					}
+					finally
+					{
+						editor.graph.model.endUpdate();
+					}
+				}
+			}
+		]]></add>
+		<add as="gradientColor"><![CDATA[
+			function (editor)
+			{
+				var color = mxUtils.prompt(mxResources.get('enterColorname'), 'white');
+				
+				if (color != null)
+				{
+					editor.graph.setCellStyles("gradientColor", color);
+				}
+			}
+		]]></add>
+		<add as="strokeColor"><![CDATA[
+			function (editor)
+			{
+				var color = mxUtils.prompt(mxResources.get('enterColorname'), 'red');
+				
+				if (color != null)
+				{
+					editor.graph.setCellStyles("strokeColor", color);
+				}
+			}
+		]]></add>
+		<add as="fontColor"><![CDATA[
+			function (editor)
+			{
+				var color = mxUtils.prompt(mxResources.get('enterColorname'), 'red');
+				
+				if (color != null)
+				{
+					editor.graph.setCellStyles("fontColor", color);
+				}
+			}
+		]]></add>
+		<add as="fontFamily"><![CDATA[
+			function (editor)
+			{
+				var family = mxUtils.prompt(mxResources.get('enterFontfamily'), 'Arial');
+				
+				if (family != null && family.length > 0)
+				{
+					editor.graph.setCellStyles("fontFamily", family);
+				}
+			}
+		]]></add>
+		<add as="fontSize"><![CDATA[
+			function (editor)
+			{
+				var size = mxUtils.prompt(mxResources.get('enterFontsize'), '10');
+				
+				if (size != null && size > 0 && size < 999)
+				{
+					editor.graph.setCellStyles("fontSize", size);
+				}
+			}
+		]]></add>
+		<add as="image"><![CDATA[
+			function (editor)
+			{
+				var image = mxUtils.prompt(mxResources.get('enterImageUrl'),
+					'examples/images/image.gif');
+				
+				if (image != null)
+				{
+					editor.graph.setCellStyles("image", image);
+				}
+			}
+		]]></add>
+		<add as="opacity"><![CDATA[
+			function (editor)
+			{
+				var opacity = mxUtils.prompt(mxResources.get('enterOpacity'), '100');
+				
+				if (opacity != null && opacity >= 0 && opacity <= 100)
+				{
+					editor.graph.setCellStyles("opacity", opacity);
+				}
+			}
+		]]></add>
+		<add as="straightConnector"><![CDATA[
+			function (editor)
+			{
+				editor.graph.setCellStyle("straightEdge");
+			}
+		]]></add>
+		<add as="elbowConnector"><![CDATA[
+			function (editor)
+			{
+				editor.graph.setCellStyle("");
+			}
+		]]></add>
+		<add as="arrowConnector"><![CDATA[
+			function (editor)
+			{
+				editor.graph.setCellStyle("arrowEdge");
+			}
+		]]></add>
+		<add as="toggleOrientation"><![CDATA[
+			function (editor, cell)
+			{
+				editor.graph.toggleCellStyles(mxConstants.STYLE_HORIZONTAL, true);
+			}
+		]]></add>
+		<add as="toggleRounded"><![CDATA[
+			function (editor)
+			{
+				editor.graph.toggleCellStyles(mxConstants.STYLE_ROUNDED);
+			}
+		]]></add>
+		<add as="toggleShadow"><![CDATA[
+			function (editor)
+			{
+				editor.graph.toggleCellStyles(mxConstants.STYLE_SHADOW);
+			}
+		]]></add>
+		<add as="horizontalTree"><![CDATA[
+			function (editor, cell)
+			{
+				cell = cell || editor.graph.getSelectionCell();
+				
+				if (cell == null)
+				{
+					cell = editor.graph.getDefaultParent();
+				}
+				
+				editor.treeLayout(cell, true);
+			}
+		]]></add>
+		<add as="verticalTree"><![CDATA[
+			function (editor, cell)
+			{
+				cell = cell || editor.graph.getSelectionCell();
+				
+				if (cell == null)
+				{
+					cell = editor.graph.getDefaultParent();
+				}
+				
+				editor.treeLayout(cell, false);
+			}
+		]]></add>
+	</Array>
+</mxEditor>

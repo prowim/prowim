@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-tools" basedir="." default="main">
+	<property name="project.name" value="ProWim.tools" />
+	<property name="project.jarfile" value="prowim-tools.jar" />
+	<property name="project.lib.dir" value="../lib/" />
+	<property name="project.build.dir" value="../bin/" />
+	<property name="project.source.dir" value="../src/" />
+		
+	<property file="build.properties"/>
+	
+	
+	    
+	<!-- Attributes for the compile target -->
+	<property name="build.debug" value="true" />
+	<property name="build.debuglevel" value="lines,vars,source" />
+	
+	<target name="prowim-tools-jar">
+		
+		
+	    <jar jarfile="${project.jarfile}">
+	    	 <fileset dir="../bin/"
+	    	         
+	    	 	includes="de/**/*.class"
+	    	  />
+	    	<!-- includes="de/ebcot/prowim/**/*.class" -->
+<!--	    	<fileset dir="../src/"
+	    	                     includes="de/ebcot/prowim/**/*.java"
+	    	              />
+	-->    	
+	    	 <!-- <metainf dir="." includes="jboss.xml" />
+	    	
+            
+	    	   <fileset dir="../classes/"
+	    	                includes="de/**/*.class"
+	    	            />
+	                   
+	                    <fileset dir="."
+	                            includes="META-INF/**/**/*"
+	                     />
+	    	
+	    	  <fileset dir="."
+	    	                   includes="users.properties"
+	    	             />
+	    	<fileset dir="."
+	    	                   includes="roles.properties"
+	    	             /> -->
+	       <manifest>
+	    	               
+	    	          <!-- Who is building this jar? -->
+	                  <attribute name="Built-By" value="ebcot.de"/>
+	                  <!-- Information about the program itself -->
+	                  <attribute name="Implementation-Vendor" value="ebcot"/>
+	                  <attribute name="Implementation-Title" value="ProWim-System"/>
+	                  <attribute name="Implementation-Version" value="2.0.0"/>
+	       	          <!-- details -->
+	                  
+	        </manifest>    
+	        
+	      </jar>
+	   </target>
+	
+	
+	
+	<path id="project.classpath">
+	        <path refid="compile.libs.classpath" />
+	    </path>
+	<path id="compile.libs.classpath">
+	        <fileset dir="${project.lib.dir}">
+	            <include name="**/*.jar"/>
+	        </fileset>
+	        
+	    </path>
+	
+	<target name="init" description="Prepare for build">
+	        <!--<mkdir dir="${build.dir}"/>
+	        <mkdir dir="${dist.dir}"/>
+	        <mkdir dir="${appserver.jboss.dist}"/>
+	        <mkdir dir="${test.report.dir}"/>
+	        <mkdir dir="${test.build.dir}"/> -->
+	    </target>
+	
+	<target name="compile" depends="init"  description="Compile application without cleaning">
+	        <javac debug="off" verbose="no" debuglevel="${build.debuglevel}" srcdir="${project.source.dir}" destdir="${project.build.dir}"
+	         includes="**/*.java" deprecation="true">
+	         <classpath refid="project.classpath"/>
+	     </javac>
+	       
+	   </target>
+	
+	
+
+	<!-- Erzeugt die WAR Datei für den Webserver -->
+	<target name="prowim-system-war">
+		<jar 
+			jarfile="${project.warfile}" 
+		>
+			<fileset dir="../classes/"
+				includes="
+				de/ebcot/prowim/services/web/**/*.jsp
+				de/ebcot/prowim/services/web/**/*.class
+				de/ebcot/prowim/services/web/**/*.css
+				"
+				
+			/>
+			<fileset dir="./"
+				includes="WEB-INF/*.xml
+				WEB-INF/*.txt
+				WEB-INF/de/ebcot/prowim/services/web/**/*.class"
+			      />
+			
+		</jar>
+	</target>
+	
+		
+	
+	
+	<!-- C:/Programme/jboss-5.0.1/jboss-5.0.0.GA/server/default/deploy -->
+	<!-- Deploy die erzeugte EAR DAtei -->
+	<target name="main" depends="build,deploy">	
+		
+	</target>
+	
+	<target name="build" depends="clean,compile">
+	        
+	    </target>
+	<target name="deploy" depends="build">
+		      
+		      
+		        
+	            
+	        </target>
+	
+	
+	<target name="clean">
+		<delete>
+			<fileset dir="../bin" includes="**/*.class"/>
+		    <fileset dir="." includes="*.jar"/>
+			<fileset dir="." includes="*.ear"/>
+			<fileset dir="." includes="*.war"/>
+			
+		 </delete>
+		
+    </target>
+</project>

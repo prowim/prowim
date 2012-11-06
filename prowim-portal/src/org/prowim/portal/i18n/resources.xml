@@ -1,0 +1,660 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE resources SYSTEM "resources.dtd" [
+    <!ENTITY contentProperty "Dokumenteigenschaften">
+    <!ENTITY contentProperties "Dokumenteneigenschaften"> 
+    <!ENTITY document "Dokument">
+    <!ENTITY documents "Dokumente"> 
+    <!ENTITY version "Version">
+    <!ENTITY versions "Versionen"> 
+    <!ENTITY versionHistory "Versionshistorie">
+    <!ENTITY versionHistories "Historie der Versionen"> 
+    ]>
+    <!-- TODO siehe Task "3685: Internationalisierung der Entitäten"--> 
+    <!--
+        This is the XML document defined by resource.dtd used by ProWim Maziar 
+        Khodaei, Ebcot GmbH, 13.05.2009 Example for accelerator: * "INSERT" =>
+        getKeyStroke(KeyEvent.VK_INSERT, 0); * "control DELETE" =>
+        getKeyStroke(KeyEvent.VK_DELETE, InputEvent.CTRL_MASK); * "alt shift
+        X" => getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK |
+        InputEvent.SHIFT_MASK); * "alt shift released X" =>
+        getKeyStroke(KeyEvent.VK_X, InputEvent.ALT_MASK |
+        InputEvent.SHIFT_MASK, true); * "typed a" => getKeyStroke('a');
+
+        Example grouping: <group id="TEST"> <attribute id="NAME" label="Name"
+        tooltip="Name of shirt."/> <enumAttribute id="SIZE" label="Size"
+        tooltip="Shirt size."> <enum label="S" value="1"/> <enum label="M"
+        value="2"/> <enum label="L" value="3"/> </enumAttribute>
+        <enumAttributeWithNull id="COLOR" label="Color" tooltip="Color of
+        shirt." nullLabel="Choose color:"> <enum label="Red." value="1"/>
+        <enum label="Green." value="2"/> <enum label="Blue." value="3"/>
+        </enumAttributeWithNull> <composedText id="ORDER"> You ordered
+        <argument index="0" type="number" style="integer"/> shirt<argument
+        index="0" type="choice" style="0#s|1#|3#s"/>. </composedText> <text
+        id="COPYRIGHT"> God of the greedy. </text> </group>
+    -->
+<resources>
+    <group id="FRAMES">
+        <group id="GLOBAL">
+           <group id="TEXTS">
+             <text id="LOGIN_FAILED">Ihre Anmeldung war nicht erfolgreich. Bitte überprüfen Sie den Benutzernamen und das Passwort</text>
+             <text id="NO_PERMISSION">Keine Zugriffsrechte vorhanden</text>
+             <text id="NO_RIGHTS_ROLES">Ihr Zugang wurde deaktiviert. Bitte kontaktieren Sie Ihren Administrator.</text>
+             <text id="EXISTING_ROLES">Verfügbare Rechte</text>
+             <text id="ASSIGNED_ROLES">Zugewiesene Rechte</text>
+             <text id="ROLES_ASSIGNEMENT">Rechtezuweisung</text>
+             <text id="USER_MANAGEMENT">Benutzerverwaltung</text>
+             <text id="TYP">Typ</text>
+             <text id="CONFIRM_PASSWORD">Passwort bestätigen</text>
+             <text id="HAS_NO_DMS_CONTENT">Es könnte keinen DMS-Eintrag gefunden.</text>
+             <text id="ERROR_ON_ADD_ROLE_TO_ORGANIZATION">Die ausgewählte Rolle konnte nicht zu der Oganisation hinzugefügt werden.</text>
+             <text id="ERROR_ON_MOVE_ORGANIZATION">Eine Organisationseinheit kann nicht als Unterorganisationeinheit zu sich selbst verschoben werden.</text>        
+             <text id="ERROR_ON_SET_PROCESSTYPE_PARENT">Die Prozesskategorie konnte nicht als Unterkategorie untergeordnet werden.</text>
+             <text id="NO_ENTRIES">Keine Einträge vorhanden</text>
+             <text id="DESCRIPTION">Beschreibung</text>
+             <text id="DENOTATION">Bezeichnung</text>
+             <text id="PROPERTIES">Eigenschaften</text>
+             <text id="GENERAL">Allgemein</text>
+             <text id="DOCUMENT">Dokument</text>
+             <text id="DOCUMENTS">Dokumente</text>
+             <text id="LABEL">Version</text>
+             <text id="AUTHOR">Autor</text>
+             <text id="VERSION_HISTORY">Versionshistorie</text>
+             <text id="NAME">Name</text>
+             <text id="VERSION_NAME">Versionsname</text>
+             <text id="CREATED_AT">Erstellt am</text>
+             <text id="CREATED_FROM">Erstellt von</text>
+             <text id="CAN_BE_STARTED_FROM">Darf gestartet werden von</text>
+             <text id="FIRSTNAME">Vorname</text>
+             <text id="LASTNAME">Nachname</text>
+             <text id="NICKNAME">Benutzername</text>
+             <text id="ORGANISATION_UNIT">Organisationseinheit</text>
+             <text id="ORGANISATION_UNITS">Organisationseinheiten</text>
+             <text id="ORGANISATION_ELEMENTS">Organisationselemente</text>
+             <text id="ACTOR">Bearbeitende Person</text>
+             <text id="VALUE">Wert</text>
+             <text id="OK">OK</text>
+             <text id="CANCEL">Abbrechen</text>
+             <text id="CLOSE">Schließen</text>
+             <text id="OF">von</text>
+             <text id="ORDER">Folge</text>
+             <text id="YES">Ja</text>
+             <text id="NO">Nein</text>
+             <text id="FINISHED">Erledigt</text>
+             <text id="USER">Ansprechpartner</text>
+             <text id="USERS">Benutzer</text>
+             <text id="KNOW_MEMORY">Speicherort</text>
+             <text id="HYPERLINK">Adresse</text>
+             <text id="PASSWORD">Passwort</text>
+             <text id="TEL_LABEL">Tel</text>
+             <text id="MAIL_LABEL">Mail</text>
+             <text id="FAX_LABEL">Fax</text>
+             <text id="WEB_LABEL">Web</text>
+             <text id="VERSION">Version</text>
+             <text id="CONTACTS_PERSON_NAME">Maziar Khodaei</text>
+             <text id="CONTACTS_PERSON_TEL">+49 (0) 178 876 88 79</text>
+             <text id="CONTACTS_PERSON_MAIL">support@prowim.org</text>
+             <text id="CONTACTS_PERSON_FAX">+49 (0) 0211 942 173 56</text>
+             <text id="EBCOT_WEB">http://www.prowim.org/</text> 
+             <text id="RESPONSABLE">ProWim.orf</text>
+             <text id="COPY_RIGHT"><![CDATA[© 2013]]></text>
+             <text id="EBCOT">ProWim.org</text>
+             <text id="ABOUT">Über ProWim</text>
+             <text id="ONTOLOGY">Ontologie</text>
+             <text id="SERVER">Server</text>
+             <text id="MODELLEDITOR">Modelleditor</text>
+             <text id="PORTAL">Portal</text>
+             <text id="RIGHT_RESERVED_TEXT"><![CDATA[Alle Rechte vorbehalten. Alle Angaben ohne Gewähr. Vervielfältigung, Verbreitung oder Nutzung nicht gestattet.]]></text>
+             <text id="LOGOUT">Abmelden</text>
+             <text id="TYPE">Typ</text>
+             <text id="DATE">Datum</text>
+             <text id="ATTRIBUTES">Eigenschaften</text>
+             <text id="RELATIONS">Relationen</text>
+             <text id="SEARCH_KEY_WORD">Suchbegriff</text>
+             <text id="SEARCH_RESULT">Suchergebnisse</text>
+             <text id="PHONE">Telefon</text>
+             <text id="MAIL">E-Mail</text>
+             <text id="ADDRESS">Adresse</text>
+             <text id="PROCESS_ELEMENTS">Prozesselemente</text>
+             <text id="SWIMLANE">Swimlane</text>
+             <text id="CHART">Schaubild</text>
+             <text id="SELECTION">Auswahl</text>
+             <text id="PROWIM">ProWim</text>
+             <text id="PRODUCT_PARAM">Produktparameter</text>
+             <text id="INFORMATION_TYPE">Informationstyp</text>
+             <text id="FILE">Datei</text>
+             <text id="ACTIVITY">Aktivität</text>
+             <text id="ACTIVITIES">Aktivitäten</text>
+             <text id="MEANS">Mittel</text>
+             <text id="ROLES">Rollen</text>
+             <text id="PROCESS_INFORMATIONS">Prozessinformationen</text>
+             <text id="PRODUCT_WAYS">Produktwege</text>
+             <text id="CONTROL_FLOWS">Kontrollflusse</text>
+             <text id="RESULTS_MEMORY">Ablage</text>
+             <text id="WORKS">Tätigkeiten</text>
+             <text id="FUNCTIONS">Funktionen</text>
+             <text id="PRODUCTS">Produkten</text>
+             <text id="MINIMUM">Mindestens</text>
+             <text id="MAXIMUM">Höchstens</text>
+             <text id="REPOSITORY">Repository</text>
+             <text id="ASSOCIATED_PROPERTIES">Zugehörige Bestandteile</text>
+             <text id="ACTUAL_PROSSES">Aktueller Prozess</text>
+             <text id="ALL_PROSSES_ELEMETS">Alle Prozesselemente</text>
+             <text id="UPDATE_DIALOG_TITLE">Aktualisierung</text>
+             <text id="NODOCUMENT">Kein Dokument in DMS vorhanden</text>
+             <text id="ADD">Hinzufügen</text>
+             <text id="DELETE">Entfernen</text>
+             <text id="UPDATE_DIALOG_MESSAGE">Es wurden Änderungen von einem anderen Benutzer vorgenommen, daher müssen diese und andere Ansichten erneut geladen werden.</text>
+             <text id="UPDATE_DIALOG_MESSAGE_MODEL1">Das Schaubild zum Prozess "</text>
+             <text id="UPDATE_DIALOG_MESSAGE_MODEL2">" wurde geändert. Bitte laden Sie den Modelleditor erneut.</text>
+             <text id="LEVEL">Ebene</text>
+             <text id="COPY">Kopie</text>
+             <text id="ERROR_MODEL_EDITOR_EMAIL_SUBJECT">Fehler in Modeleditor</text>
+             <text id="ERROR_EMAIL_FOOTER">Dies ist eine automatisch generierte EMail der Anwendung ProWim</text>
+             <text id="ERROR_EMAIL_RECEIVER">support@prowim.com</text>
+             <text id="PROBLEM_REPORT">Problembericht</text>
+             <text id="IN">in</text>
+             <text id="PART_OF">Gehört zu</text>
+             <text id="FILTER_THE_LIST">Die Liste filtern</text>
+             <text id="KEY_WORDS">Schlagwörter</text>
+             <text id="FEEDBACK_TO">Feedback zu</text>
+           </group>
+           <group id="IMAGES">
+                <image id="ORGANISATION_UNITS_IMAGE" src="img/location/group.png" />
+                <image id="ORGANISATION_UNIT_IMAGE" src="img/location/location.png" />
+                <image id="PRODUCT_LOGO" src="img/header/prowim-logo.gif" />
+           </group>
+           <group id="ACTIONS">
+                <action id="ITEM_DESCRIPTION" label="Beschreibung anzeigen" src="img/general/help.png" tooltip="Beschreibung zum gewählten Objekt in einem Dialog anzeigen."/>
+                <action id="ITEM_ADD" label="Element auswählen"  src="img/toolbar/add.png" tooltip="Wählen Sie einen Element aus der untere Liste aus."/>
+                <action id="ITEM_DELETE" label="Element löschen"  src="img/toolbar/delete.png" tooltip="Ausgewählter Element wird endgültig gelöscht!"/>
+                <action id="ITEM_SECURITY_PERSON" label="Zugriff für Personen verwalten"  src="img/security/key.png" tooltip="Zugriffsrechte für dieses Element konfigurieren."/>
+                <action id="ITEM_SECURITY_OE" label="Zugriff für Organisationseinheit verwalten"  src="img/security/key.png" tooltip="Zugriffsrechte für dieses Element konfigurieren."/>
+                <action id="LOGIN" label="Anmelden" src="img/security/key.png" tooltip="Anmeldung durchführen."/>
+                <action id="KNOWLEDGE_OBJECT_EXCEL_EXPORT" label="Wissensobjekte nach Excel exportieren" src="img/document/excel_export.png" tooltip="Wissensobjekte in eine Exceltablle exportieren."/>
+                <action id="KNOWLEDGE_DOMAIN_EXCEL_EXPORT" label="Wissensbereiche nach Excel exportieren" src="img/document/excel_export.png" tooltip="Wissensbereiche in eine Exceltablle exportieren."/>
+                <action id="PROCESSES_EXCEL_EXPORT" label="Prozesse nach Excel exportieren" src="img/document/excel_export.png" tooltip="Prozesse in eine Exceltablle exportieren."/>
+                <action id="PROCESSES_EXCEL_EXPORT_COMPLETE" label="Prozess(e) vollständig nach Excel exportieren" src="img/document/excel_export.png" tooltip="Prozess(e) und dazugehörige Aktivitäten und Rollen in eine Exceltablle exportieren."/>
+                <action id="DOCUMENTS_EXCEL_EXPORT" label="Dokumentenablage nach Excel exportieren" src="img/document/excel_export.png" tooltip="Dokumentenablage in eine Exceltablle exportieren."/>
+                <action id="FEEADBACK_MAIL" label="Feedback senden" src="img/general/mail.gif" tooltip="Zu dem ausgewählten Objekt Feedback geben."/>
+           </group>
+        </group>
+        <group id="DIALOG">
+            <group id="ACTIONS">
+              <action id="FORWARD_DOUBLE_REMOVE_ALL_ROLES" label="Alle Rollen entfernen"   src="img/general/forward_double.gif" tooltip="Entfernt dem Benutzer alle Rollen."/>
+              <action id="FORWARD_DOUBLE_ADD_ALL_ROLES" label="Alle Rollen zuweisen"   src="img/general/backward_double.gif" tooltip="Weist dem Benutzer alle Rollen zu."/>
+              <action id="FORWARD_REMOVE_SELECTED_ROLE" label="Ausgewählte Rolle entfernen"   src="img/general/forward.gif" tooltip="Entfernt dem Benutzer die ausgewählte Rolle."/>
+              <action id="FORWARD_ADD_SELECTED_ROLE" label="Ausgewählte Rolle zuweisen"   src="img/general/backward.gif" tooltip="Weist dem Benutzer die ausgewählte Rolle zu."/>
+              <action id="ADD_USER" label="Benutzer hinzufügen"  src="img/person/add.png" tooltip="Wählen Sie den Benutzer aus, der diese Aktivität bearbeiten soll bzw. das Wissensobjekt beherrscht."/>
+              <action id="EDIT_USER" label="Benutzerinformationen ändern"  src="img/person/edit.png" tooltip="Wählen Sie den Benutzer aus, die Sie editiert werden soll."/>
+              <action id="ADD_USER_TO_ROLE" label="Benutzer hinzufügen"  src="img/person/add.png" tooltip="Wählen Sie die Benutzer aus, die diese Rolle belegen dürfen."/>
+              <action id="ADD_USER_EXECUTE_ROLE" label="Benutzer hinzufügen"  src="img/person/add.png" tooltip="Wählen Sie die Benutzer aus, die diese Rolle belegen sollen."/>
+              <action id="ADD_USER_TO_LIST" label="Benutzer einfügen"  src="img/general/forward.gif" tooltip="Einfügen der ausgewählten Benutzer in der Liste."/>
+              <action id="DELETE_USER_FROM_LIST" label="Benutzer entfernen"   src="img/general/backward.gif" tooltip="Entfernen der ausgewählten Benutzer aus der Liste."/>
+              <action id="ADD_TEXT" label="Text ändern/hinzufügen"  src="img/dialog/textfield-add.png" tooltip="Sie haben die Möglichkeit einen Text hinzuzufügen oder den Inhalt zu ändern."/>
+              <action id="ADD_LINK" label="Internetadresse eingeben"  src="img/dialog/textfield-add.png" tooltip="Bitte tragen Sie in das untere Feld eine Internetadresse ein."/>
+              <action id="ADD_DATE" label="Datum setzen"  src="img/dialog/calendar-view-day.png" tooltip="Wählen Sie aus dem Dialog das gewünschte Datum aus."/>
+              <action id="KNOWLEDGE_LINK_DETAILS" label="Eigenschaften"  src="img/knowledge/link/show.png" tooltip="Zeigt die Eigenschaften des gewählten Wissensverweises."/>
+              <action id="REMOVE_KNOWLEDGE_OBJECT" label="Objekt aus dem Bereich entfernen"  src="img/toolbar/delete.png" tooltip="Entfernt das ausgewählte Wissensobjekt aus dem Bereich."/>
+              <action id="ADD_FILE" label="Datei hochladen"  src="img/document/add.png" tooltip="Wählen Sie mit dem Durchsuchenknopf eine beliebige Datei aus."/>
+              <action id="ADD_LONG_TEXT" label="Text ändern/hinzufügen"  src="img/dialog/textfield-add.png" tooltip="Sie haben die Möglichkeit einen langen Text hinzufügen oder den Inhalt zu ändern."/>
+              <action id="ADD_SINGLE_LIST" label="Auswahlliste"  src="img/dialog/text-list-bullets.png" tooltip="Wählen Sie aus der unteren Liste einen Punkt aus."/>
+              <action id="ADD_MULTI_LIST" label="Auswahlliste"  src="img/dialog/text-list-bullets.png" tooltip="Wählen Sie aus der unteren Liste die gewünschten Punkte aus."/>
+              <action id="ADD_COMBO_BOX" label="Auswahlliste"  src="img/dialog/text-list-bullets.png" tooltip="Wählen Sie aus der unteren Liste einen Punkt aus."/>
+              <action id="ADD_ORG_UNIT" label="Organisationseinheit"  src="img/dialog/text-list-bullets.png" tooltip="Wählen Sie aus der untere Liste eine Organisation aus."/>
+              <action id="ADD_INTEGER" label="Ganzzahl eingeben"  src="img/dialog/textfield-add.png" tooltip="Geben Sie im unteren Textfeld eine Ganzzahl ein."/>
+              <action id="ADD_FLOAT" label="Fließkommazahl eingeben"  src="img/dialog/textfield-add.png" tooltip="Geben Sie im unteren Textfeld eine Fließkommazahl ein."/>
+              <action id="DATA_LOSING" label="Datenverlust"  src="img/dialog/exclamation.png" tooltip="Die von Ihnen geänderten Daten werden endgültig gelöscht."/>
+              <action id="ADD_KNOW_LINK" label="Wissensverweis hinzufügen"  src="img/knowledge/link/add.png" tooltip="Drücken Sie den Knopf um einen Wissensverweis hinzuzufügen."/>
+              <action id="KNOW_LINK_DETAILS" label="Versionshistorie zu dem Wissensverweis anzeigen"  src="img/versioning/general-version-info.png" tooltip="Details über den ausgewählten Wissensverweis."/>
+              <action id="DELETE_KNOW_LINK" label="Wissensverweis löschen"  src="img/knowledge/link/delete.png" tooltip="Es wird der ausgewählte Wissensverweis unwiderruflich entfernt."/>
+              <action id="OPEN_HYPER_LINK" label="Wissensverweis öffnen"  src="img/knowledge/link/show.png" tooltip="Es wird der ausgewählte Wissensverweis geöffnet."/>
+              <action id="OPEN_EXISTING_LINK" label="Existierende DMS Dokumente öffnen"  src="img/knowledge/link/edit.png" tooltip="Es werden alle bestehenden Dokumente im DMS angezeigt."/>
+              <action id="UPLOAD_DOCUMENT" label="Dokument hochladen"  src="img/knowledge/link/new.png" tooltip="Es wird ein neues Dokument in das DMS hochgeladen."/>
+              <action id="ACTIVATE_VERSION" label="Als aktive Version setzen"  src="img/versioning/process-version-activate.png" tooltip="Die gewählte Version wird als aktive Version markiert."/>
+              <action id="ACTIVATE_NEWEST_VERSION" label="Neueste Version aktivieren"  src="img/versioning/process-version-show.png" tooltip="Die neueste Version wird als aktive Version markiert."/>
+              <action id="RENAME_VERSION" label="Version umbenennen"  src="img/versioning/process-version-rename.png" tooltip="Die Version umbenennen."/>
+              <action id="COPY_URL_TO_CLIPBOARD" label="Adresse in Zwischenablage kopieren"  src="img/versioning/process-version-rename.png" tooltip="Die angezeigte Adresse wird in die Zwischenablage kopiert."/>
+              <action id="VIEW_VERSION" label="Version anzeigen"  src="img/versioning/process-version-show.png" tooltip="Die gewählte Version anzeigen."/>
+              <action id="ADD_ORGA" label="Organisationseinheit erstellen"  src="img/location/location-add.png" tooltip="Erzeugen Sie eine neue Organisationseinheit."/>
+              <action id="EDIT_ORGA" label="Organisationseinheit ändern"  src="img/location/location-edit.png" tooltip="Den ausgewählten Organisatinseinheit ändern."/>
+              <action id="ADD_ITEM_TO_OBJEKT" label="Element zu einem Objekt hinzufügen"  src="img/toolbar/add.png" tooltip="Setzen Sie das gewählte Objekt mit einem bestehenden Element in Verbindung."/>
+              <action id="ADD_KNOWLEDGEOBJECT_TO_ITEM" label="Wissensobjekt einem Element zuordnen"  src="img/general/assign.png" tooltip="Ordnen Sie das gewählte Wissensobjekt einem bestehenden Element zu."/>
+              <action id="SET_NAME_OF_SWIMLANE" label="Swimlane als Organisationseinheit oder Rolle ezeugen"  src="img/general/assign.png" tooltip="Wählen Sie bitte aus der unteren Liste eine Organisationseinheit oder Rolle aus. Die Swimlane wird gemäß der Auswahl benannt."/>
+              <action id="ADD_PERSON_TO_ORGANIZATION" label="Person einer Organisationseinheit zuordnen"  src="img/general/assign.png" tooltip="Ordnen Sie die gewählte Person einer bestehenden Organisationseinheit zu."/>
+              <action id="ADD_ROLE_TO_ORGANIZATION" label="Rolle einer Organisationseinheit zuordnen"  src="img/general/assign.png" tooltip="Setzen Sie die gewählte Rolle in einer Organisationseinheit."/>
+              <action id="DELETE_ORGANIZATION" label="Organisationseinheit löschen"  src="img/location/location-delete.png" tooltip="Ausgewählte Organisationseinheit vollständig entfernen."/>
+              <action id="MOVE_ORGANIZATION" label="Organisationseinheit verschieben"  src="img/location/location-move.png" tooltip="Verschiebt die ausgewählte Organisationseinheit."/>
+              <action id="REMOVE_ROLE_FROM_ORGANIZATION" label="Rolle entfernen"  src="img/toolbar/delete.png" tooltip="Entfernt die gewählte Rolle aus der Organisationseinheit."/>
+              <action id="ADD_EDIT_USER" label="Benutzer erstellen bzw. ändern"  src="img/person/add.png" tooltip="Einen neuen Benutzer erzeugen oder die Informationen zu einem bestehenden ändern."/>
+              <action id="SHOW_USER_INFORMATION" label="Benutzerinformationen anzeigen"  src="img/person/add.png" tooltip="Für den ausgewählten Benutzer werden alle Detailinformationen angezeigt, wie z. B. die E-Mailadresse."/>
+              <action id="ADD_NEW_USER" label="Benutzer erstellen"  src="img/person/add.png" tooltip="Einen neuen Benutzer erstellen"/>
+              <action id="GET_ALL_USER" label="Alle Benutzer anzeigen"  src="img/person/user-search.png" tooltip="Liefert alle Benutzer, die im System vorhanden sind."/>
+              <action id="ADD_EDIT_DOMAIN" label="Wissenbereich erstellen"  src="img/knowledge/link/show.png" tooltip="Erzeugen Sie ein neuen Wissenbereich."/>
+              <action id="REQUIRED_ERROR_DIALOG" label="Pflichtfelder ausfüllen"  src="img/dialog/information.png" tooltip="Bitte füllen Sie alle Pflichtfelder aus, bevor Sie das Fenster schließen."/>
+              <action id="TEXT_LENGTH_ERROR_DIALOG" label="Falsche Textlänge"  src="img/dialog/information.png" tooltip="Der Text hat zu viele oder zu wenige Zeichen. Bitte beachten Sie die Angaben zur Länge des Textes."/>
+              <action id="PASSWORDS_EQUALS_DIALOG" label="Das hinterlegte Passwort wurde unterschiedlich eingegeben"  src="img/dialog/information.png" tooltip="Das hinterlegte Passwort wurde unterschiedlich eingegeben"/>
+              <action id="REQUIRED_ONE_ITEM" label="Pflichtfelder ausfüllen"  src="img/dialog/information.png" tooltip="Es ist nur ein Auswahl erlaub bzw. es muss mindestens einen Auswahl getroffen werden."/>
+              <action id="INCOMPATIBLE_SELECTION" label="Auswahl"  src="img/dialog/information.png" tooltip="Die aktuelle Auswahl ist nicht möglich."/>
+              <action id="PRODUCT_PARAM_DIALOG" label="Produktparameter bearbeiten"  src="img/product/product-param.png" tooltip="Bestehende Produktparameter bearbeiten."/>
+              <action id="DELETE_USER" label="Benutzer löschen" src="img/person/delete.png" tooltip="Ausgewählten Benutzer vollständig entfernen."/>
+              <action id="SELECT_CREATE_ROLE" label="Rolle auswählen"  src="img/person/role.png" tooltip="Bestehende Rolle auswählen bzw. eine neue Rolle erzeugen."/>
+              <action id="SELECT_CREATE_MEAN" label="Mittel auswählen"  src="img/means/means.png" tooltip="Bestehendes Mittel auswählen bzw. ein neues Mittel erzeugen."/>
+              <action id="SELECT_CREATE_RESULTS_MEM" label="Ablage auswählen"  src="img/memory/memory.png" tooltip="Bestehende Ablage auswählen bzw. eine neue Ablage erzeugen."/>
+              <action id="CREATE_NEW_ROLE" label="Neue Rolle erzeugen"  tooltip="Markieren Sie die Auswahlbox, um eine neue Rolle zu erzeugen."/>
+              <action id="CREATE_NEW_MEAN" label="Neues Mittel erzeugen"  tooltip="Markieren Sie die Auswahlbox, um ein neues Mittel zu erzeugen."/>
+              <action id="CREATE_NEW_RESULTS_MEM" label="Neue Ablage erzeugen"  tooltip="Markieren Sie die Auswahlbox, um eine neue Ablage zu erzeugen."/>
+              <action id="SHOW_ACTIVITY_RELATIONS" label="Details zur Aktivität"  src="img/dialog/information.png" tooltip="Zugehörige Rollen, Mittel und Wissensobjekte"/>
+              <action id="SUPPORT_MAIL_DIALOG" label="ProWim - Ausnahmefehler"  src="img/dialog/information.png" tooltip="Problembericht senden"/>
+              <action id="SELECT_SUB_PROCESS_DIALOG" label="Teilprozess auswählen"  src="img/process/process.png" tooltip="Wählen Sie einen Teilprozess aus."/>
+              <action id="SELECT_RELATION_DIALOG" label="Relation auswählen"  src="img/process/process.png" tooltip="Wählen Sie eine Relation aus."/>
+              <action id="SHOW_MODEL_URL" label="Browseradresse zum Prozessschaubild"  src="img/knowledge/link/link.png" tooltip="Für externe Verweise auf das Prozessschaubild kann die Adresse kopiert werden."/>
+			  <action id="SET_PROZESSTYPE_LANDSCAPE" label="Prozesskategorie für die Prozesslankarte auswählen"  src="img/general/assign.png" tooltip="Wählen Sie bitte aus der unteren Liste eine Prozesskategorie aus."/>
+			  <action id="SET_PROZESS_LANDSCAPE" label="Prozess für die Prozesskategorie auswählen"  src="img/general/assign.png" tooltip="Wählen Sie bitte aus der unteren Liste einen Prozess aus."/>              
+            </group>
+            <group id="IMAGES">
+                <image id="DIALOG_PERSON" src="img/dialog/header/person.png" />
+                <image id="DIALOG_DATE" src="img/dialog/header/calendar.gif" />
+                <image id="DIALOG_DEFAULT" src="img/dialog/header/enter.png" />
+                <image id="CONFIRM_IMAGE" src="img/dialog/confirm.png" />
+                <image id="INFORMATION_IMAGE" src="img/dialog/information.png" />
+                <image id="SUPPORT_MAIL_DIALOG_IMAGE" src="img/dialog/header/support.png" />
+            </group>
+            <group id="TEXTS">
+                <text id="SELECTED_DATE">Ausgewähltes Datum</text>
+                <text id="USER_LABEL">Benutzer</text>
+                <text id="USER_SELECTION">Auswahl des Benutzers</text>
+                <text id="USER_SEARCH">Benutzersuche</text>
+                <text id="SELECTED_TIME">Ausgewählte Zeit</text>
+                <text id="SHOW_DATE_TIME">Datum und Zeit anzeigen</text>
+                <text id="BROWSE">Durchsuchen</text>
+                <text id="FILE_UPLOAD">Datei übertragen</text>
+                <text id="DELETE_DESCRIPTION">Der Datensatz wird endgültig gelöscht. Soll der Vorgang trotzdem durchgeführt werden?</text>
+                <text id="ALL_USERS">Alle Benutzer</text>
+                <text id="SELECTED_USERS">Ausgewählte Benutzer</text>
+                <text id="ALL_ORGS">Alle Organisationseinheiten</text>
+                <text id="SELECTED_ORGS">Ausgewählte Organisationseinheiten</text>
+                <text id="ALL_PROCESS_TYPES">Alle Prozesskategorien</text>
+                <text id="SELECTED_PROCESS_TYPES">Ausgewählte Prozesskategorien</text>
+                <text id="TEXT_FOR_DATA_LOSING"><![CDATA[Sie haben die Daten für den aktuellen Prozess noch nicht gespeichert. Wenn Sie die aktuelle Sicht ändern,
+ gehen die geänderten Daten verloren. Wollen Sie den Prozess jetzt starten um die Prozessparameter beizubehalten? Wenn Sie abbrechen, werden die aktuellen Prozessparameter verworfen.]]></text>
+                <text id="VALUE_NOT_SET">Wert nicht gesetzt</text>
+                <text id="VALUE_NOT_SET_DESC">Der Wert für folgendes Attribut sollte gesetzt werden:</text>
+                <text id="NO_SELECTION">- Keine Auswahl -</text>
+                <text id="NO_DATA">---</text>
+                <text id="SAVE_PROCESS_START_DATA">Soll der aktuelle Prozess vor dem Schließen des Fensters gestartet werden?</text>
+                <text id="LOGIN_MAIN_TITLE">Prozessorientiertes Wissensmanagement</text>
+                <text id="LOGOUT_TEXT">Wollen Sie sich abmelden?</text>
+                <text id="ADD_ITEM_TO_A_OBJECT">Wohin soll das gewählte Objekt hinzugefügt werden?</text>
+                <text id="PROCESS_AND_ACTIVTY">Prozess und Aktivität</text>
+                <text id="ORGANIZATIONS_AND_ROLES">Organisationseinheiten und Rollen</text>
+                <text id="SELECT_ITEM_IN_TREE">Markieren Sie bitte das gewünschte Element im Baum</text>
+                <text id="ABOUT_DESCRIPTION"><![CDATA[Auflistung der Versionsstände der einzelnen Komponenten und die Kontaktadresse des Herstellers.]]></text>
+                 <text id="CHANGE_PASSWORD_DESCRIPTION"><![CDATA[ ]]></text>
+              	<text id="VERSION_OF_SOFTWARE">Version der Softwarekomponenten</text>
+              	<text id="FILE_ERROR_MESSAGE">Die Datei konnte nicht geöffnet werden.</text>
+              	<text id="ERROR_TITLE">Fehlermeldung</text>
+              	<text id="ERROR_MESSAGE"><![CDATA[Während der Ausführung ist ein Fehler unterlaufen. 
+Der Softwarehersteller wurde über den Fehlerstand automatisch informiert.]]></text>
+              	<text id="WARNING_TITLE">Warnung</text>
+              	<text id="ASSIGN">Zuweisen</text>
+              	<text id="OPEN">Öffnen</text>
+              	<text id="EXISTING_DOCUMENT">Vorhandene Dokumente</text>
+              	<text id="EXISTING_PROCESSES">Vorhandene Prozesse</text>
+              	<text id="NEW">Neues Dokument</text>
+              	<text id="ERROR_ACTIVATE_VERSION">Beim Aktivieren der Version ist ein Fehler aufgetreten.</text>
+              	<text id="SUCCESS_ACTIVATE_VERSION">Die Version wurde aktiviert.</text>
+				<text id="ERROR_DUPLICATE_VERSION_NAME">Der Versionsname ist bereits vergeben.</text>
+				<text id="SAVE_MODEL_PLEASE_WAIT">Modell wird gespeichert. Bitte klicken Sie auf OK und warten Sie auf die Speicherbestätigung.</text>
+				<text id="SAVE_MODEL_SUCCESS">Modell wurde gespeichert.</text>
+              	<text id="CONFIRM_TITLE">Bestätigung</text>
+				<text id="INFORMATION_TITLE">Information</text>
+				<text id="DESC_USER_CREATE_EDIT"><![CDATA[Sie haben die Möglichkeit einen neuen Benutzer zu erzeugen oder die Informationen der ausgewählten Benutzer zu ändern. 
+				Bitte achten Sie darauf, dass die farblich hervorgehobenen Pflichtfelder ausgefüllt sind.]]></text>
+				<text id="DESC_USER_SHOW_INFORMATION"><![CDATA[Sie können die angezeigten Informationen an dieser Stelle nicht ändern. 
+				Die Angaben zu einem Benutzer können Sie im Menü "Wissensstruktur->Organisationselemente" modifizieren.]]></text>              	
+				<text id="DESC_ORGANISATION_CREATE"><![CDATA[Sie haben die Möglichkeit eine neue Organisationseinheit zu erzeugen. 
+				Bitte achten Sie darauf, dass die farblich hervorgehobenen Pflichtfelder ausgefüllt sind.]]></text>              	
+				<text id="DESC_ORGANISATION_EDIT"><![CDATA[Sie haben die Möglichkeit die ausgewählte Organisationseinheit zu ändern. 
+				Bitte achten Sie darauf, dass die farblich hervorgehobenen Pflichtfelder ausgefüllt sind.]]></text>              	
+				<text id="VALIDATION_INFO_TEXT">Die Validierung ist fehlgeschlagen. Folgende Mindest- bzw. Höchstanzahl von Elementen sollten ausgewählt werden:</text>
+				<text id="EXIST_ROLES">Existierende Rollen</text>
+				<text id="EXIST_MEANS">Existierende Mittel</text>
+				<text id="EXIST_RESULTS_MEM">Existierende Ablagen</text>              	
+				<text id="DESC_EXIST_ROLES"><![CDATA[Sie haben die Möglichkeit eine der existierenden Rollen auszuwählen bzw. eine neue Rolle zu erzeugen. 
+				Die angezeigten Rollen sind alle globale Rollen, die im gesamten System benutzt werden können. Falls Sie eine lokale Rolle benötigen, erzeugen Sie bitte 
+				eine neue Rolle und setzen Sie diese anschliessend auf lokal. Die lokalen Rollen können von anderen Prozessen nicht benutzt werden.]]></text>              	
+				<text id="DESC_EXIST_MEAN"><![CDATA[Sie haben die Möglichkeit eine der existierenden Mittel auszuwählen bzw. ein neues Mittel zu erzeugen.]]></text>              	
+				<text id="DESC_EXIST_RESULTS_MEM"><![CDATA[Sie haben die Möglichkeit eine der existierenden Ablagen auszuwähten bzw. eine neue Ablage zu erzeugen. 
+				Die angezeigten Ablagen sind alle globale Ablagen, die im gesamten System benutzt werden können. Falls Sie eine lokale Ablage benotigen, erzeugen Sie bitte 
+				eine neue Ablage und setzen Sie diese anschliessend auf lokal. Die lokalen Ablagen können von anderen Prozessen nicht benutzt werden.]]></text>              	
+				<text id="SET_AS_LOCAL"><![CDATA[Nur in diesem Prozess verwenden (lokal).]]></text>
+				<text id="PROCESS_CLONED">Der Prozess wurde erfolgreich kopiert.</text>
+				<text id="CLONE_SELECTED_PROCESS_VERSION">Ausgewählte Prozessversion kopieren</text>
+				<text id="CLONE_MODEL_PLEASE_WAIT"><![CDATA[Soll jetzt von der ausgewählten Version eine Kopie erstellt werden? Bitte klicken Sie auf OK und warten Sie bis der Vorgang abgeschlossen ist.]]></text>
+				<text id="SUPPORT_MAIL_DLG_DESCRIPTION"><![CDATA[Sie können diesen Problembericht nun an den Hersteller versenden. Alternativ können Sie den Problembericht in die Zwischenablage kopieren und per E-Mail senden.]]></text>
+				<text id="SUPPORT_MAIL_DLG_DESCRIPTION_FOR_DMS"><![CDATA[Das von Ihnen angefordete Dokument konnte in der Dokumentenablage / DMS nicht gefunden werden. Aktualisieren Sie bitte das zugehörige Wissensobjekt. Falls das Wissensobjekt nicht fehlerhaft sein sollte, schicken Sie bitte diese Mail an den Hersteller.]]></text>
+				<text id="SUPPORT_MAIL_DLG_CONTENT"><![CDATA[Es wurde ein fehlerhafter Datensatz gefunden. Bitte informieren Sie den Hersteller der Software, indem Sie den Problembericht senden. 
+															
+															Falls dies nicht möglich ist, kopieren Sie den Problembericht in die Zwischenablage und fügen diesen in ihr Mailprogramm ein. Versenden Sie die Mail bitte an: support@prowim.com mit Betreff: "Ausnahmefehler"."]]></text>
+				<text id="SEND_MAIL">Mail versenden</text>
+				<text id="ACTIVITY_DETAILS_DLG_DESCRIPTION"><![CDATA[Zu der ausgewählten Aktivität werden die zugehörigen Rollen, Mittel und Wissensobjekte aufgelistet.]]></text>
+				<text id="WARNING_NO_LINK">Der Wissensverweis verweist auf keine Adresse und kann nicht angezeigt werden.</text>
+				<text id="SHOW_MODEL_URL_DESCRIPTION">Sie haben die Möglichkeit die angezeigte Adresse (URL) in die Zwischenablage zu kopieren und von außerhalb der Anwendung auf das Schaubild zuzugreifen. Das Schaubild kann somit z. B. in Wiki eingebunden werden. Markieren Sie bitte den Text und kopiere Sie ihn mit Control-C in die Zwischenablage.</text>
+				<text id="DOCUMENT_EXISTS_DIALOG_TITLE">Hochladen von Dokumenten</text>
+				<text id="DOCUMENT_EXISTS_DIALOG_DESCRIPTION">Das hochzuladende Dokument existiert bereits in der Dokumentenablage / DMS. Um dieses Dokument hochladen zu können, muss es umbenannt werden. Sie haben ebenfalls die Möglichkeit das gewünschte Dokument aus der Dokumentenablage / DMS dem Wissensverweis zuzuweisen.</text>
+				<text id="SHOW_RELATIONS_DLG_DESCRIPTION">Alle Prozesseelemente, die dieses Element verwenden, werden hier aufgelistet. Falls die Liste leer ist beduetet, dass das Element in keinem Prozesselement vorkommt.</text>
+				<text id="SHOW_DELETE_ELEMENT_DLG_DESCRIPTION"><![CDATA[Das ausgewählte Element befindet sich in unten angezeigten Prozessen. Um es zu löschen muss es vorher aus diesem Prozessen entfernt werden.]]></text>
+				<text id="KEY_WORDS_TOOLTIPS_SEPARATE_COMMA"><![CDATA[Bitte beachten Sie, dass die Schlagwörter jeweils durch ein Komma getrennt werden müssen.]]></text>              	
+            </group>
+        </group>
+        <group id="HEADER">
+            <group id="ACTIONS">
+              <action id="LOGOUT" label="Abmelden"  src="img/header/exit.png" tooltip="Abmelden"/>
+              <action id="MAIN_CONFIG" label="Einstellung"  src="img/header/config.png" tooltip="Einstellung"/>
+              <action id="CHANGE_PASSWORD" label="Passwort ändern."  src="img/person/edit.png" tooltip="Drücken Sie hier, um das Passwort zu ändern."/>
+              <action id="ABAOUT" label="Über ProWim"  src="img/header/information.png" tooltip="Informationen über das Softwareprodukt ProWim."/>
+              <action id="SEARCH" label="Suche"  src="img/general/find.png" tooltip="Es wird nach dem eingegebenem Schlagwort gesucht."/>
+              <action id="DELETE_SEARCH_FIELD" label="Eintrag löschen"  src="img/header/close.png" tooltip="Eintrag löschen"/>
+            </group>
+            <group id="TEXTS">
+                <text id="SEARCH_TEXT">Suche</text>
+                <text id="LOGIN_USER">Angemeldet als</text>
+            </group>
+            <group id="IMAGES">
+                <image id="IMAGE_BANNER_BG" src="img/header/kopfzeile-filler.gif" />
+                <image id="IMAGE_PROWIM_LOGO" src="/img/header/prowim-logo.gif" />
+                <image id="IMAGE_BG_ORANGE" src="img/header/table-head-brd.gif" />
+                <image id="NAVI_SUB_BGD" src="img/header/navi-sub-bgd.gif" />
+                <image id="NAVI_SHADOW_SUB_BGD" src="img/header/navigation-shadow.gif" />
+            </group>
+        </group>
+        <group id="NAVIGATION">
+            <group id="ACTIONS">
+	          <action id="PROCESS_NAV" label="Prozesse"  src="img/process/process.png" tooltip="Bestehende Prozesse können eingesehen werden und neue Prozesse gestartet werden."/>
+              <action id="WORK_LIST_NAV" label="Aktivitätenliste"  src="img/workflow/tasks.png" tooltip="Diese Liste zeigt alle aktiven Arbeitsschritte der angemeldeten Benutzer an."/>
+              <action id="DOCUMENT_NAV" label="Dokumente"  src="img/document/dms.png" tooltip="Es können Dokumente hinzugefügt werden oder nach ihnen gesucht werden."/>
+              <action id="DOCUMENT_SEARCH_NAV" label="Suche"  src="img/general/find.png" tooltip="Suche nach eingetragenen Dokumenten."/>
+              <action id="EXISTING_DOCUMENTS_NAV" label="Vorhandene Dokumente"  src="img/document/dms.png" tooltip="Vorhandene Dockumente anzeigen."/>
+              <action id="DOCUMENT_FULL_SEARCH_NAV" label="Volltextsuche"  src="img/document/find_full.png" tooltip="Anhand eines Schlagwortes wird eine Volltextsuche durchgeführt."/>
+              <action id="DOCUMENT_UPLOAD_NAV" label="Dokumente eingeben"  src="img/document/add.png" tooltip="Ein neues Dokument kann hiermit ins System eingestellt werden."/>
+              <action id="DOCUMENT_MULTIPLE_UPLOAD_NAV" label="Mehrere Dokumente eingeben"  src="img/document/add_multiple.png" tooltip="Es können mehrere Dokumente hiermit ins System eingestelltw werden."/>
+              <action id="KNOWLEDGE_NAV" label="Wissen"  src="img/knowledge/knowledge.gif" tooltip="Bestehendes Wissen kann eingesehen werden und neues Wissen hinzugefügt werden."/>
+              <action id="KNOWLEDGE_PROCESS_NAV" label="Prozess-/Fachwissen"  src="img/knowledge/lightbulb_off.png" tooltip="Anzeige von Prozess- und Fachwissen in zwei Bäumen."/>
+              <action id="KNOWLEDGE_BROWSER_NAV" label="Prozessbrowser"  src="img/process/browser.png" tooltip="Der Prozessbrowser zur grafischen Darstellung des Prozesses."/>
+              <action id="KNOWLEDGE_SEARCH_NAV" label="Wissen suchen"  src="img/general/find.png" tooltip="Mit unterschiedlichen Anfragen nach Wissen suchen."/>
+              <action id="KNOWLEDGE_STRUCTURE_NAV" label="Wissensstruktur"  src="img/knowledge/structure.png" tooltip="In unterschiedlichen Ansichten das Wissen strukturieren."/>
+              <action id="KNOWLEDGE_WIKI_NAV" label="ProWim Wiki"  src="img/knowledge/store/wiki.gif" tooltip="ProWim Wiki öffnen."/>
+              <action id="ADMIN_NAV" label="Administration"  src="img/person/adminrechte.gif" tooltip="Administration der Benutzerrechte."/>
+            </group>
+           <group id="IMAGES">
+                <image id="MENU_SELECTED_BGD" src="img/header/table-head-brd.gif" />
+                <image id="MENU_SHADOW_SUB_BGD" src="img/header/kopfzeile-filler.gif" />
+            </group>
+        </group>
+        <group id="TOOLBAR">
+            <group id="IMAGES">
+                <image id="IMAGE_TOLLBAR_BACKGROUND" src="img/toolbar/header-filler.png" />
+            </group>
+            <group id="ACTIONS">
+                <action id="START_PROCESS" label="Prozess starten"  src="img/process/start.png" tooltip="Es kann hiermit ein Prozess gestartet werden."/>
+                <action id="CREATE_PROCESS" label="Prozessparameter einstellen"  src="img/process/parameter.png" tooltip="Es wird für einen startbaren Prozess die Prozesseigenschaften festgelegt."/>
+                <action id="HELP_TOOL_BAR" label="Hilfe"  src="img/general/help.png" tooltip="Kontextsensitive Hilfe zu dieser Seite."/>
+                <action id="PRINT_TOOL_BAR" label="Drucken"  src="img/general/print.png" tooltip="Drucken der aktuellen Seite."/>
+                <action id="DELETE_PROC_TOOL_BAR" label="Prozess löschen"  src="img/process/delete.png" tooltip="Wenn Sie diesen Prozess löschen, werden auch alle alten und aktuellen Workflows entfernt werden. Sind Sie sicher?"/>
+                <action id="ADD_VALUE_TOOL_BAR" label="Wert hinzufügen"  src="img/toolbar/add.png" tooltip="Es wird ein neuer Wert in ein entsprechendes Feld hinzugefügt."/>
+                <action id="DELETE_VALUE_TOOL_BAR" label="Wert löschen"  src="img/toolbar/delete.png" tooltip="Der aktuell ausgewählte Wert wieder wieder entfernt."/>
+                <action id="SHOW_PROCESS_MODEL" label="Prozessschaubild bearbeiten"  src="img/process/modeleditor.gif" tooltip="Das zu einem Prozess gezeichnete grafische Schaubild kann editiert werden."/>
+                <action id="SHOW_VERSIONS" label="Versionen anzeigen"  src="img/versioning/general-version-info.png" tooltip="Zeigt alle Versionen des gewählten Prozessmodells an."/>
+                <action id="CREATE_NEW_PROCESS" label="Neuer Prozess"  src="img/process/process-document.png" tooltip="Es wird ein neuer Prozess in der markierten Prozesskategorie erzeugt."/>
+                <action id="CREATE_NEW_ROLE" label="Neue Rolle erzeugen"  src="img/person/role.png" tooltip="Bitte geben Sie der neuen Rolle einen Namen und eine Beschreibung ein."/>
+                <action id="CREATE_NEW_MEAN" label="Neus Mittel erzeugen"  src="img/means/means.png" tooltip="Bitte geben Sie dem neuen Mittel einen Namen und eine Beschreibung ein."/>
+                <action id="CREATE_NEW_RESULTS_MEM" label="Neue Ablage erzeugen"  src="img/memory/memory.png" tooltip="Bitte geben Sie dem neuen Mittel einen Namen und eine Beschreibung ein."/>
+              	<action id="CREATE_NEW_PROCESS_TYPE" label="Neue Prozesskategorie"  src="img/process/category-new.png" tooltip="Es wird eine neue Prozesskategorie erstellt."/>
+              	<action id="DELETE_PROCESS_CATEGORY" label="Prozesskategorie löschen"  src="img/tree/folder_delete.png" tooltip="Sind Sie sicher, dass Sie diese Prozesskategorie löschen wollen?"/>
+           	    <action id="EDIT_NAME_DESCRIPTION" label="Name und Beschreibung ändern" src="img/general/text.gif" tooltip="Im oberen Feld können Sie den Namen und im unteren Feld die Beschreibung ändern."/>
+           	    <action id="DELETE_SUB_PROCESS" label="Teilprozess löschen" src="img/toolbar/delete.png" tooltip="Der ausgewählte Teilprozess kann nicht gelöscht werden, da der Teilprozess in den unten aufgeführten Prozessen verwendet wird. Um den Teilprozess zu löschen, entfernen Sie bitte zunächst den Teilprozess aus den aufgelisteten Hauptprozessen."/>
+				<action id="SHOW_ONLY_PROCESS_LANDSCAPE" label="Nur die Prozesslandkarten anzeigen" src="img/process/landscape.gif" tooltip="Es werden nur die Prozesslandkarten angezeigt. Alle anderen Prozessen werden ausgeblendet."/>
+				<action id="SHOW_ALL_PROCESSES" label="Alle Prozesse anzeigen" src="img/process/all-processes.png" tooltip="Es werden alle freigegebene Prozesse angezeigt."/>           	    
+            </group>
+            <group id="TEXTS">
+                <text id="DELETE_PROCESS_CATEGORY_TEXT">Die Prozesskategorie ist nicht leer und beinhaltet Prozesse oder weitere Prozesskategorien. Bitte verschieben/löschen Sie diese, bevor Sie die Prozesskategorie löschen.</text>
+            </group>
+  
+        </group>   
+        <group id="PROCESS">
+            <group id="ACTIONS">
+                <action id="PROCESS_START_NAV" label="Startbare Prozesse"  src="img/process/start.png" tooltip="Alle Prozesse die startbar sind werden aufgelistet."/>
+                <action id="PROCESS_ACTIVE_NAV" label="Aktive Prozesse"  src="img/process/active.png" tooltip="Die zurzeit aktiven Prozesse werden aufgelistet."/>
+                <action id="PROCESS_FINISH_NAV" label="Beendete Prozesse"  src="img/process/finished.png" tooltip="Die abgeschlossenen Prozesse werden aufgelistet."/>
+                <action id="PROCESS_MODELLER_NAV" label="Modelleditor"  src="img/process/modeleditor.gif" tooltip="Modelleditor zur Modellierung von Prozessen."/>
+                <action id="PROCESS_MODELLER2_NAV" label="Modelleditor"  src="img/process/modeleditor.gif" tooltip="Allgemeiner Modelleditor zur Modellierung von Prozessen."/>
+                <action id="PROCESS_PARAMETER" label="Prozessparameter"  src="img/process/start.png" tooltip="Die Parameter von startbaren Prozessen festlegen."/>
+                <action id="PROCESS_INFORMATIONS" label="Prozessinformationen"  src="img/process/start.png" tooltip="Details zum ausgewählten Prozess."/>
+                <action id="PROCESS_BROWSER" label="Prozessschaubild anzeigen"  src="img/process/start.png" tooltip="Ein Schaubild zu einem Prozess anzeigen."/>
+                <action id="NEW_PROCESS" label="Neu"  src="img/process/process-document.png" tooltip="Ein neuen Prozess erzeugen."/>
+                <action id="SET_PROCESS_TYPE" label="Prozesskategorien setzen"  src="img/process/category-new.png" tooltip="Setzen Sie die Kategorie zu dem gewählten Prozess."/>
+                <action id="COPY_PROCESS" label="Prozess kopieren"  src="img/general/copy.png" tooltip="Wählen Sie bitte aus der Liste eine Version aus, um davon ein Duplikat zu erzeugen. Falls keine Version von dem Prozess existiert (leere Liste) wird von dem Originalprozess eine Kopie erstellt."/>
+                <action id="SET_PROCESS_NAME" label="Name und Beschreibung angeben"  src="img/general/text.gif" tooltip="Geben Sie den Namen und die Beschreibung für den neuen Prozess ein."/>
+            </group>
+            <group id="TEXTS">
+                <text id="PROCESS">Prozess</text>
+                <text id="PROCESSES">Prozesse</text>
+                <text id="TITLE_ACTIVE_PROCESSES">Aktive Prozesse</text>
+                <text id="TITLE_FINISHED_PROCESSES">Fertige Prozesse</text>
+                <text id="PROCESS_NAME">Prozessname</text>
+                <text id="PROCESS_DESCRIPTION">Prozessbeschreibung</text>
+                <text id="PROCESS_TYPE">Prozesskategorie</text>
+                <text id="PROCESS_TYPES">Prozesskategorien</text>
+                <text id="PROCESS_GROUP_HEADER">Startbare Prozesse für </text>
+                <text id="PROCESS_KNOWLEDGE">Wissensangebot</text>
+                <text id="TITLE_WORKING_LIST">Arbeitsliste</text>
+                <text id="ROLE_SETTING_GROUP">Rollenbesetzung</text>
+                <text id="START_PARAMETER_FOR">Startparameter für</text>
+                <text id="BESET_WITH">Besetzt mit</text>
+                <text id="START_AT">Gestartet am</text>
+                <text id="END_AT">Beendet am</text>
+                <text id="DESCRIPTION_OF_PROCESS">Ausführliche Beschreibung des Prozesses</text>
+                <text id="DESCRIPTION_FOR_PROCESS_START">Um einen neuen Prozess zu starten drücken Sie auf "Prozess starten".</text>
+                <text id="SELECTIVE_PROCESS">Ausgewählter Prozess</text>
+                <text id="SELECTION_PROCESS">Prozessauswahl</text>
+                <text id="CREATE_NEW_PROCESS">Neuen Prozess erstellen</text>
+                <text id="CREATE_NEW_PROCESS_TYPE">Neue Prozesskategorie erstellen</text>
+                <text id="OPEN_EXISTING_PROCESS">Bestehende Prozesse laden</text>
+                <text id="NEW_PROCESS">Neuer Prozess</text> 
+                <text id="NEWEST_VERSION">Neueste / Editierbare Version</text>
+                <text id="PROCESS_VERSION_ACTIVATE_QUESTION"><![CDATA[Wählen Sie Ja, wenn Sie die ausgewählte Version für den Start von Prozessen verwenden wollen. Zusätzlich wird diese Version zum Editieren innerhalb des Modelleditors verwendet. Die aktuelle Version zum Editieren im Modelleditor wird gelöscht.
+                
+Wählen Sie Nein, wenn Sie die ausgewählte Version nur für den Start von Prozessen verwenden wollen. Die aktuelle Version zum Editieren im Modelledtior bleibt erhalten.
+
+Hinweis: Wenn Sie nicht abbrechen, werden auf jeden Fall alle laufende Prozesse gelöscht, d. h. alle aktiven Prozesse werden unwiderruflich vom System entfernt.]]></text>
+                <text id="PROCESS_HIJACK_MESSAGE"><![CDATA[Das Schreibrecht für diesen Prozess ist von anderer Stelle übernommen worden. Der aktuelle Stand wird gespeichert und der Modell-Editor geschlossen.]]></text>
+                <text id="PROCESS_LOCKED_EDITOR_QUESTION"><![CDATA[Der Prozess wird derzeit bereits bearbeitet. Soll er im Anzeigemodus geöffnet werden? Falls Sie "Nein" wählen, wird das exklusive Recht zur Bearbeitung an diese Instanz übertragen. Der derzeitige Stand wird übernommen.]]></text>
+                <text id="PROCESS_HIJACK_FAILED"><![CDATA[Die Übertragung des Bearbeitungsrechts ist fehlgeschlagen.]]></text>
+                <text id="PROCESS_LOCKED_VERSION_DIALOG_QUESTION"><![CDATA[Der Prozess wird derzeit bearbeitet. Soll der Vorgang abgebrochen werden?]]></text> 
+            </group>
+            <group id="IMAGES">
+                <image id="PROCESS_TYPE_IMAGE" src="img/process/folder.png" />
+                <image id="PROCESS_LAND_SCAPE" src="img/process/landscape.gif" />
+            </group>            
+        </group>  
+        <group id="ACTIVITY">
+            <group id="ACTIONS">
+                <action id="EDIT_ACTIVITY" label="Aktivität bearbeiten"  src="img/activity/edit.png" tooltip="Die ausgewählte Aktivität bearbeiten."/>
+                <action id="SAVE_ACTIVITY" label="Zwischenstand speichern"  src="img/activity/add.png" tooltip="Es werden die vorgenommenen Änderungen gespeichert, jedoch die Aktivität nicht beendet."/>
+                <action id="CLOSE_ACTIVITY" label="Aktivität beenden"  src="img/activity/finish.png" tooltip="Die aktuelle Aktivität wird fertiggestellt."/>
+            </group>
+        
+            <group id="TEXTS">
+                <text id="DELIVERABLES_ACTIVITY">Durchzuführende Aktivität</text>
+                <text id="TABLE_HEADER_ACTIVSINCE">Aktiv seit</text>
+                <text id="ACTIVITY_GROUP_HEADER">Anstehende Aufgaben</text>
+                <text id="TITLE_WORKING_LIST">Arbeitsliste</text> 
+                <text id="SELECTIVE_ACTIVITY">Ausgewählte Aktivität</text>
+                <text id="INPUT_PARAMETER">Eingänge</text>
+                <text id="OUTPUT_PARAMETER">Ausgänge</text>
+                <text id="DECISION_PARAMETER">Entscheidung wie der Prozess fortgeführt wird</text>
+                <text id="DESCRIPTION_OF_ACTIVITY">Ausführliche Beschreibung der Aktivität</text>
+            </group>
+            <group id="IMAGES">
+                <image id="ACTIVITY_IMAGE" src="img/activity/activity.png"  />
+            </group>            
+        </group>
+        <group id="MEAN">
+            <group id="ACTIONS">
+            </group>
+            <group id="TEXTS">
+            </group>
+            <group id="IMAGES">
+                <image id="MEAN_IMAGE" src="img/means/means.png"  />
+            </group>            
+        </group>    
+
+        <group id="RESULTSMEMORY">
+            <group id="ACTIONS">
+            </group>
+            <group id="TEXTS">
+            </group>
+            <group id="IMAGES">
+                <image id="RESULTSMEMORY_IMAGE" src="img/memory/memory.png"  />
+            </group>            
+        </group>    
+        <group id="ROLE">
+            <group id="ACTIONS">
+            </group>
+            <group id="TEXTS">
+                 <text id="ROLE">Rolle</text>
+            </group>
+            <group id="IMAGES">
+            	<image id="ROLE_IMAGE" src="img/person/role.png" />
+                <image id="START_ROLE_IMAGE" src="img/person/startrole.png"  />
+            </group>            
+        </group>    
+            
+        <group id="TREE">
+            <group id="ACTIONS">
+                <action id="EXPAND_TREE" label="Erweitern" src="img/tree/folder_add.png" tooltip="Der Ordner wird aufgeklappt."/>
+                <action id="REDUCE_TREE" label="Reduzieren" src="img/tree/folder_delete.png" tooltip="Der Ordner wird zugeklappt."/>
+                <action id="RELOAD_TREE" label="Aktualisieren" src="img/tree/reload.png" tooltip="Es wird die aktuelle Baumansicht aktualisiert indem die Daten neu geladen werden."/>
+                <action id="FLAT_TREE" label="Prozesselemente flach" src="img/tree/change_tree_structure.png" tooltip="Bei der flachen Darstellung werden die Teilprozesse in eigenen Prozesskategorien angezeigt."/>
+            </group>
+        
+            <group id="IMAGES">
+                <image id="TREE_FOLDER" src="img/tree/folder.png" />
+                <image id="USER_IMAGE" src="img/person/user.png" />
+                <image id="USER_GROUP_IMAGE" src="img/person/group.png" />
+            </group>   
+            <group id="TEXTS">
+                <text id="LOAD_TREE_NODE">Baum wird geladen!</text>
+                <text id="TREE_IS_EMPTY">Baum ist leer!</text>
+            </group>
+        </group>    
+
+        <group id="PROCESSELEMENT">
+            <group id="ACTIONS">
+                <action id="SHOW_RELATIONS" label="Relationen anzeigen" src="img/process/relation.gif" tooltip="Liste alle Prozesseelemente, wo das gewähltes Element vorkommt."/>
+            </group>
+            <group id="IMAGES">
+            </group>   
+            <group id="TEXTS">
+            </group>
+        </group>    
+
+        <group id="DOCUMENT">
+            <group id="ACTIONS">
+            </group>
+            <group id="IMAGES">
+            </group>   
+            <group id="TEXTS">
+                    <text id="FILE_UPLOAD_WAIT">Datei wird hochgeladen. Bitte warten Sie...</text>
+                    <text id="UPLOAD_FINISHED">Das Hochladen ist erfolgreich beendet.</text>
+                    <text id="FILE_UPDATED">Die Datei existirerte beretis und wurde aktualisiert.</text>
+            </group>
+        </group>    
+
+        <group id="KNOWLEDGE">
+            <group id="ACTIONS">
+                <action id="ADD_WOB" label="Wissensobjekte hinzufügen" src="img/knowledge/object/add.png" tooltip="Es kann ein Wissensobjekt und dazu gehörige Wissensverweise erstellt werden."/>
+                <action id="EDIT_WOB" label="Wissensobjekt bearbeiten" src="img/knowledge/object/edit.png" tooltip="Das existierende Wissensobjekt wird bearbeitet oder es können neue Wissensverweise hinzugefügt werden."/>
+                <action id="SHOW_WOB" label="Wissensobjekte anzeigen" src="img/knowledge/object/show.png" tooltip="Es werden die Wissensobjekte und dazu gehörige Wissensverweise angezeigt."/>
+                <action id="DELETE_WOB" label="Wissensobjekte löschen" src="img/knowledge/object/delete.png" tooltip="Es wird das Wissensobjekt sowie die dazugehörigen Wissensverweise gelöscht."/>
+                <action id="DELETE_KNOW_LINK" label="Wissensverweis löschen" src="img/knowledge/link/delete.png" tooltip="Es wird der Wissensverweis gelöscht."/>
+                <action id="SHOW_KNOW_LINK" label="Inhalt anzeigen" src="img/knowledge/link/show.png" tooltip="Das im Wissensverweis gespeicherte Dokument wird angezeigt."/>
+                <action id="DELETE_KNOWLEDGE_DOMAIN" label="Wissensbereich löschen" src="img/knowledge/link/delete.png" tooltip="Der ausgewählte Wissensbereich wird gelöscht."/>
+            
+            </group>
+            <group id="TEXTS">
+                <text id="PROCESS_KNOW">Prozesswissen</text>
+                <text id="DOMAIN_KNOW">Fachwissen</text>
+                <text id="DENOT_KNOW_DESC">Bezeichnung des Wissensobjekts</text>
+                <text id="KNOWLEDGE_LINK_NAME">Bezeichnung des Wissenslinks</text>
+                <text id="DESC_KNOW_DESC">Beschreibung des Wissensobjekts</text>
+                <text id="CREATE_KNOWLEDGE_LINK_INFO">Das Dokument kann erst geöffnet werden, wenn Sie alle Wissensverweise durch OK im Dialog speichern. Danach ist das Öffnen erst möglich!</text>
+                <text id="CREATE_KNOWLEDGE_LINK_INFO_DIALOG_TITLE">Erstellen der Wissensverweise und Dokumente</text>
+                <text id="KNOWLEDGE_LINK_DESCRIPTION">Beschreibung des Wissenslinks</text>
+                <text id="KNOW_FOR_DOMAIN">Wissen zur Domäne</text>
+                <text id="KNOW_FOR_PROCESS">Wissen zum Prozess</text>
+                <text id="KNOW_FOR_ACTIVITY">Wissen zur Aktivität</text>
+                <text id="LINK_OF_KNOWLEDGE">Wissensverweise</text>
+                <text id="AREA_OF_KNOWLEDGE">Wissensbereich</text>
+                <text id="EXIST_LINK_OF_KNOWLEDGE">Zugehörige Wissensverweise</text>
+                <text id="SELECT_LINK_OF_KNOW">Ausgewählter Wissensverweis</text>
+                <text id="NEW_KNOW_LINK">Neuer Wissensverweis</text>
+                <text id="KNOW_DOMAIN">Wissensbereich</text>
+                <text id="KNOW_DOMAINS">Wissensbereiche</text>
+                <text id="KNOW_LINK">Wissensverweis</text>
+                <text id="KNOW_OBJECT">Wissensobjekt</text>
+                <text id="KNOW_OBJECTS">Wissensobjekte</text>
+                <text id="APPROPRIATE_KNOWLEDGE">Zugehöriges Wissen</text>
+                <text id="APPROPRIATE_USER">Zugehöriger Benutzer</text>
+                <text id="ALL_PROCESS_ELEMENTS">Alle Prozesselemente</text>
+                <text id="KNOWLEDGE_TYPE_KNOWLEDGE_ELEMENT">Wissenselement</text>
+                <text id="KNOWLEDGE_SOURCE_DMS">Dokumente</text>
+                <text id="KNOWLEDGE_SOURCE_WIKI">Wiki</text>
+                <text id="KNOWLEDGE_SOURCE_KNOWLEDGE_OBJECT">Wissensobjekte</text>
+                <text id="KNOWLEDGE_SOURCE_KNOWLEDGE_LINK">Wissensverweise</text>
+                <text id="KNOWLEDGE_SOURCE_KNOWLEDGE_DOMAIN">Wissensbereiche</text>
+                <text id="KNOWLEDGE_SEARCH_TABLE_TYP">Typ</text>
+                <text id="KNOWLEDGE_SEARCH_TABLE_SOURCE">Suchbereich</text>
+                <text id="KNOWLEDGE_SEARCH_TABLE_TITLE">Titel</text>
+                <text id="KNOWLEDGE_SEARCH_SELECTION">Suchbereiche</text>
+                <text id="KNOWLEDGE_WIKI_TOO_FEW_CHAR">Die Suche im Wiki liefert nur Ergebnisse mit vier Buchstaben im Suchbegriff.</text>
+                <text id="KNOWLEDGE_SEARCH_AREA_AND_TEXT_EMPTY">Es wurde kein Suchbereich für die Suche ausgewählt und kein Suchbegriff eingegeben.
+Bitte geben Sie einen Suchbegriff ein und wählen Sie einen oder mehrere Suchbereiche aus.</text>
+                <text id="KNOWLEDGE_SEARCH_AREA_EMPTY">Es wurde kein Suchbereich für die Suche ausgewählt. Wählen Sie bitte einen oder mehrere Suchbereiche aus.</text>
+                <text id="KNOWLEDGE_SEARCH_TEXT_EMPTY">Es wurde kein Suchbegriff eingegeben.</text>
+                <text id="KNOWLEDGE_OBJECT_MINIMUM_LINK_NUMBER_ERROR">Bitte erstellen Sie mindestens einen Wissensverweis für das Wissensobjekt.</text>
+            </group>
+        
+            <group id="IMAGES">
+                <image id="URL_IMAGE" src="img/knowledge/store/world-link.png" />
+                <image id="WIKI_IMAGE" src="img/knowledge/store/wiki.gif" />
+                <image id="NETWORK_IMAGE" src="img/knowledge/store/drive-network.gif" />
+                <image id="DMS_IMAGE" src="img/knowledge/store/database-link.png" />
+                <image id="KNOW_IMAGE" src="img/knowledge/object/object.png" />
+                <image id="DOMAIN" src="img/knowledge/domain.png" />
+            </group>            
+        </group>    
+        <group id="TABLE">
+            <group id="ACTIONS">
+              <action id="TABLE_SORT_UP" label="UP"  src="img/table/bullet-up.png" tooltip="UP"/>
+              <action id="TABLE_SORT_DOWN" label="DOWN"  src="img/table/bullet-down.png" tooltip="DOWN"/>
+              <action id="RELOAD_TABLE" label="Tabelle aktualisieren"  src="img/tree/reload.png" tooltip="Drucken Sie hier, um die Tablle zu aktualisieren."/>
+            </group>
+        </group>
+    </group>
+
+        <!-- TODO siehe Task "3685: Internationalisierung der Entitäten" 
+    <group id="VALUE_OBJECTS">
+        <text id="UNIQUE_KEY">Index</text>
+        <group id="DOCUMENT">
+            <text id="VO_NAME_SINGULAR">&document;</text>
+            <text id="VO_NAME_PLURAL">&documents;</text>
+            <attribute id="NAME" label="Name"/>
+            <attribute id="TYPE" label="Typ"/>
+            <attribute id="SIZE" label="Dateigröße"/>
+            <attribute id="FORMAT" label="Format"/>
+            <attribute id="CONTENT" label="Datei"/>
+        </group>
+    </group>-->
+    
+</resources>

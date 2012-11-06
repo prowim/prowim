@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+<listEntry value="/prowim-tools/src/de/ebcot/prowim/tools/ApplicationStarter.java"/>
+</listAttribute>
+<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+<listEntry value="1"/>
+</listAttribute>
+<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="de.ebcot.prowim.tools.ApplicationStarter"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="ta"/>
+<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="prowim-tools"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Djava.endorsed.dirs=${PROWIM_JBOSS_ENDORSED_DIR} -Djava.security.auth.login.config=${workspace_loc}/prowim-data/src/auth.conf -Djboss.server.home.dir=${workspace_loc}/prowim-server/etc/appserver"/>
+</launchConfiguration>

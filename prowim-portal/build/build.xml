@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-portal" basedir="." default="main">
+	
+	<import file="../../prowim-build/build/build-shared.xml"/> 
+	
+	<property name="dir.build.portal.jar" value="${dir.build}${dir.extension.jar}"/>
+	<property name="dir.build.portal.war" value="${dir.build}${dir.extension.war}"/>
+	
+	<target name="compile-portal">
+		<init-project current.project="."/>
+		<mkdir dir="${dir.build.portal.jar}"/>
+		
+		<!-- Compile Ebcot RAP Framework -->
+		<antcall target="ebcot-rap-framework-dist" />
+		<!-- Compile data -->
+		<antcall target="data-dist" />
+		<!-- Compile ModelEditor -->
+		<antcall target="modeleditor-dist" />
+		<!-- Compile jboss libs -->
+		<antcall target="jboss-dist" />
+		
+		<javac debug="true" deprecation="false" destdir="${dir.build.portal.jar}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+            <classpath refid="lib.rap.classpath"/>
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath>
+				<fileset file="${project.data.dist.jar}"/>
+				<fileset file="${project.editor.dist.jar}"/>
+				<fileset file="${project.ebcot-rap-framework.dist.jar}"/>
+			</classpath>
+        	<src path="../src/"/>
+        </javac>
+        
+        <copy todir="${dir.build.portal.jar}/" overwrite="true">
+			<fileset dir="../" >
+				<include name="html/**"/>
+				<include name="img/**"/>
+				<include name="lib/**"/>
+				<include name="META-INF/**"/>
+				<include name="plugin.xml"/>
+			</fileset>
+			<fileset dir="../src/" >
+				<exclude name="**/*.java"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="portal.compile.tests" depends="create-portal-dist">
+		<javac debug="true" srcdir="${src.test}" deprecation="false" destdir="${dir.test}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath refid="lib.rap.classpath"/>
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath>
+				<fileset file="${project.data.dist.jar}"/>
+				<fileset file="${project.editor.dist.jar}"/>
+				<fileset file="${project.ebcot-rap-framework.dist.jar}"/>
+			</classpath>
+			<classpath refid="classpath.junit"/>
+			<classpath>
+				<pathelement location="${project.portal.dist.jar}"/>
+			</classpath>
+		</javac>
+	</target>
+	
+	<target name="portal.run.tests" depends="portal.compile.tests">
+		<junit printsummary="true" >
+			<classpath refid="lib.rap.classpath"/>
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath>
+				<fileset file="${project.data.dist.jar}"/>
+				<fileset file="${project.editor.dist.jar}"/>
+				<fileset file="${project.ebcot-rap-framework.dist.jar}"/>
+			</classpath>
+			<classpath refid="classpath.junit"/>
+			<classpath>
+				<pathelement location="${project.portal.dist.jar}"/>
+				<path location="${dir.test}"></path>
+			</classpath>
+
+			<formatter type="xml"/>
+			
+			<batchtest fork="yes" todir="${dir.test.results}">
+			    <fileset dir="${src.test}">
+			      <include name="**/*Test.java"/>
+			      <exclude name="**/AllTests.java"/>
+			    </fileset>
+			  </batchtest>
+
+		</junit>
+	</target>
+	
+	<target name="create-portal-dist" depends="compile-portal">
+		<mkdir dir="${dir.dist.jar}"/>
+		
+		<jar jarfile="${project.portal.dist.jar}" filesetmanifest="merge">
+			<fileset dir="${dir.build.portal.jar}" />
+		</jar>
+	</target>
+	
+	
+	<target name="build-portal-war" depends="create-portal-dist">
+		<mkdir dir="${dir.build.portal.war}"/>
+		
+		<copy todir="${dir.build.portal.war}" overwrite="true">
+			<fileset dir="deployment" />
+		</copy>
+		
+		<copy todir="${dir.build.portal.war}/WEB-INF/eclipse" overwrite="true">
+			<fileset dir="../etc/rap" >
+				<exclude name="**/*source_*.jar"/>
+				<exclude name="**/*demo*.jar"/>
+				<exclude name="**/javax_servlet*.jar"/>
+				<exclude name="**/org.eclipse.update.configurator*.jar"/>
+			</fileset>
+		</copy>
+		
+		<copy todir="${dir.build.portal.war}/WEB-INF/eclipse/plugins" overwrite="true">
+			<fileset file="${project.portal.dist.jar}"/>
+			<fileset file="${project.data.dist.jar}"/>
+			<fileset file="${project.editor.dist.jar}"/>
+			<fileset file="${project.ebcot-rap-framework.dist.jar}"/>
+			<fileset file="${project.jboss.dist.jar}"/>
+		</copy>
+	</target>
+	
+	<target  name="create-portal-war" depends="build-portal-war">
+		<mkdir dir="${dir.dist.war}"/>
+		<war destfile="${project.portal.dist.war}">
+			<fileset dir="${dir.build.portal.war}"></fileset>
+		</war>	
+	</target>
+	
+	<target name="main" depends="clean-project,portal.run.tests,create-portal-war" description="Does a fresh compile of ProWim Portal" />
+
+</project>

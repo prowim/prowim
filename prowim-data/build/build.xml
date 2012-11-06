@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-data" basedir="." default="main">
+	
+	<import file="../../prowim-build/build/build-shared.xml"/>
+	
+	<target name="data.compile-jar">
+		<init-project current.project="."/>
+		
+		<javac debug="true" srcdir="${src}" deprecation="false" destdir="${dir.build}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath>
+				<fileset dir="../lib/"></fileset>
+			</classpath>
+		</javac>
+		
+		<copy todir="${dir.build}/" overwrite="true">
+			<fileset dir="../src/" >
+				<exclude name="**/*.java"/>
+			</fileset>
+			<fileset dir="../">
+				<include name="lib/**"/>
+				<include name="META-INF/**"/>
+				<include name="plugin.xml"/>
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="data.dist" depends="data.compile-jar">
+		<jar jarfile="${project.data.dist.jar}" filesetmanifest="merge">
+			<fileset dir="${dir.build}" />
+		</jar>
+	</target>
+	
+	<target name="data.compile.tests" depends="data.dist">
+		<javac debug="true" srcdir="${src.test}" deprecation="false" destdir="${dir.test}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath refid="classpath.junit"/>
+			<classpath>
+				<pathelement location="${project.data.dist.jar}"/>
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="data.run.tests" depends="data.compile.tests">
+		<junit printsummary="true" >
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath refid="classpath.junit"/>
+			<classpath>
+				<pathelement location="${project.data.dist.jar}"/>
+			</classpath>
+			<classpath>
+				<path location="${dir.test}">
+				</path>
+			</classpath>
+
+			<formatter type="xml"/>
+
+			<batchtest fork="yes" todir="${dir.test.results}">
+				<fileset dir="${src.test}">
+					<include name="**/*Test.java"/>
+					<exclude name="**/AllTests.java"/>
+				</fileset>
+			</batchtest>
+
+		</junit>
+	</target>
+	
+	<target name="main" depends="clean-project, data.run.tests, data.dist" />
+</project>

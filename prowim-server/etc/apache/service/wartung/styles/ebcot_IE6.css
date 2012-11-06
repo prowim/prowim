@@ -1,0 +1,37 @@
+.navi_box	{ 
+			navi_box: expression(
+				this.onmouseover = new Function ("this.className = 'navi_box_hover';"),
+				this.onmouseout  = new Function ("this.className = 'navi_box';")
+				);
+			}	
+
+.navi_box_hover {
+	background-color: #9FBCA5;
+	border-top: 1px solid #ADC9B0;
+	border-left: 1px solid #ADC9B0;
+	height: 20px;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px 20px 0px 20px;
+	float:left;
+	cursor: pointer;
+}
+
+#customer_logo {
+	padding-bottom: 0px; 
+}
+
+.lisa_logo {
+	margin: 30px 10px 30px 70px;
+	float: left;
+}
+
+.lisa_start_btn {
+	margin-left: 360px;
+	padding: 56px 43px 40px 43px;
+}
+
+#handbuch_info {
+	height: 307px;
+	width: 300px;
+}

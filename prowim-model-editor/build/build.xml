@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="prowim-model-editor" basedir="." default="main">
+
+	<property name="project.editor.jarfile" value="prowim-model-editor.jar" />
+
+	<import file="../../prowim-build/build/build-shared.xml" />
+
+	<property name="dir.build.jar" value="${dir.build}${dir.extension.jar}" />
+	<property name="dir.build.war" value="${dir.build}${dir.extension.war}" />
+
+	<target name="create-editor-jar" depends="create-editor-dist">
+		<mkdir dir="${dir.dist.jar}" />
+
+		<jar jarfile="${project.editor.dist.jar}" filesetmanifest="merge">
+			<fileset dir="${dir.build.jar}" />
+		</jar>
+	</target>
+
+	<target name="compile-editor">
+		<init-project current.project="." />
+		<mkdir dir="${dir.build.jar}" />
+
+		<javac debug="true" deprecation="false" destdir="${dir.build.jar}" encoding="${source.encoding}" fork="true" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath refid="lib.rap.classpath" />
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+				<pathelement location="${project.data.dist.jar}" />
+			</classpath>
+			<src path="../src/" />
+		</javac>
+	</target>
+
+	<target name="create-editor-dist" depends="compile-editor">
+		<copy todir="${dir.build.jar}" overwrite="true">
+			<fileset dir="../">
+				<include name="modeleditor/**" />
+				<include name="META-INF/**" />
+				<include name="plugin.xml" />
+				<include name="lib/**.jar" />
+			</fileset>
+			<fileset dir="../src/">
+				<exclude name="**/*.java" />
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="editor.compile.tests" depends="create-editor-jar">
+		<javac debug="true" srcdir="${src.test}" deprecation="false" destdir="${dir.test}" encoding="${source.encoding}" source="${source.java.version}" target="${source.java.version}" verbose="false">
+			<classpath refid="lib.rap.classpath" />
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath refid="classpath.junit" />
+			<classpath>
+				<pathelement location="${project.editor.dist.jar}" />
+			</classpath>
+		</javac>
+	</target>
+
+	<target name="editor.run.tests" depends="editor.compile.tests">
+		<junit printsummary="true">
+			<classpath refid="lib.rap.classpath" />
+			<classpath>
+				<fileset dir="../lib/" includes="*.jar" />
+			</classpath>
+			<classpath refid="classpath.junit" />
+			<classpath>
+				<pathelement location="${project.editor.dist.jar}" />
+				<path location="${dir.test}">
+				</path>
+			</classpath>
+
+			<formatter type="xml" />
+
+			<batchtest fork="yes" todir="${dir.test.results}">
+				<fileset dir="${src.test}">
+					<include name="**/*Test.java" />
+					<exclude name="**/AllTests.java" />
+				</fileset>
+			</batchtest>
+
+		</junit>
+	</target>
+
+	<target name="main" depends="clean-project,editor.run.tests,create-editor-jar" description="Does a fresh compile of ModelEditor" />
+
+</project>

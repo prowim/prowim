@@ -1,0 +1,115 @@
+/*==============================================================================
+ * File $Id$
+ * Project: ProWim
+ *
+ * $LastChangedDate$
+ * $LastChangedBy$
+ * $HeadURL$
+ * $LastChangedRevision$
+ *------------------------------------------------------------------------------
+ * (c) 15.02.2011 Ebcot Business Solutions GmbH. More info: http://www.ebcot.de
+ * All rights reserved. Use is subject to license terms.
+ *==============================================================================
+ *
+ *This file is part of ProWim.
+
+ProWim is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProWim is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProWim.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von ProWim.
+
+ProWim ist Freie Software: Sie können es unter den Bedingungen
+der GNU General Public License, wie von der Free Software Foundation,
+Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+ProWim wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+Siehe die GNU General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+ */
+package org.prowim.portal.export.utils;
+
+import java.util.Map;
+import java.util.TreeMap;
+
+
+/**
+ * You can set here the name of the headers in a sheet or the style of the cells.
+ * 
+ * @author Maziar Khodaei
+ * @version $Revision$
+ * @since 2.1.0
+ */
+public class DefaultExcelSheetProperties implements ExcelSheetProperties
+{
+
+    /** Map which stores the cell names and cell types for the different excel sheets */
+    private final Map<Integer, String>  cellHeader = new TreeMap<Integer, String>();
+    private final Map<Integer, Integer> cellTypes  = new TreeMap<Integer, Integer>();
+
+    /**
+     * Constructor.
+     */
+    public DefaultExcelSheetProperties()
+    {
+    }
+
+    /**
+     * {@inheritDoc}
+     * 
+     * @see org.prowim.portal.export.utils.ExcelSheetProperties#addHeaderName(int, java.lang.String)
+     */
+    @Override
+    public void addHeaderName(int index, String name)
+    {
+        this.cellHeader.put(index, name);
+    }
+
+    /**
+     * {@inheritDoc}
+     * 
+     * @see org.prowim.portal.export.utils.ExcelSheetProperties#setCellType(int, int)
+     */
+    @Override
+    public void setCellType(int index, int cellType)
+    {
+        this.cellTypes.put(index, cellType);
+    }
+
+    /**
+     * {@inheritDoc}
+     * 
+     * @see org.prowim.portal.export.utils.ExcelSheetProperties#getHeaderName()
+     */
+    @Override
+    public Map<Integer, String> getHeaderName()
+    {
+        return this.cellHeader;
+    }
+
+    /**
+     * {@inheritDoc}
+     * 
+     * @see org.prowim.portal.export.utils.ExcelSheetProperties#getCellTypes()
+     */
+    @Override
+    public Map<Integer, Integer> getCellTypes()
+    {
+        return this.cellTypes;
+    }
+
+}

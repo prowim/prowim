@@ -1,0 +1,2 @@
+
+GlobalConstants.activityClass = "Aktivität";  

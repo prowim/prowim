@@ -1,0 +1,104 @@
+<!--
+ $Id: workflowEditor.xml,v 1.0 18/10/2009 Maziar Khodaei$
+ Copyright (c) 2009, Ebcot GmbH
+ 
+ Create toolbar.
+ This file is part of ProWim.
+
+ProWim is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProWim is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProWim.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von ProWim.
+
+ProWim ist Freie Software: Sie können es unter den Bedingungen
+der GNU General Public License, wie von der Free Software Foundation,
+Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+ProWim wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+Siehe die GNU General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+ -->
+
+<mxDefaultToolbar>
+	<add as="save" action="saveGraph" icon="images/save.gif"/>
+	<add as="show" action="show" icon="images/preview.gif"/>
+	<add as="print" action="print" icon="images/print.gif"/>
+	<add as="showXml" action="showxml" icon="images/image.gif"/>
+	<br/><hr/>
+	<add as="select" mode="connect" icon="images/connect.gif"><![CDATA[
+		function (editor)
+		{
+			if (editor.defaultEdge != null)
+			{
+				editor.defaultEdge.style = '';
+			}
+		}
+	]]></add>
+	<add as="pan" mode="pan" icon="images/pan.gif"/>
+	<add as="product" mode="connect" icon="images/prowim/product.gif"><![CDATA[
+		function (editor)
+		{
+			if (editor.defaultEdge != null)
+			{
+				editor.defaultEdge.style = 'productEdge';
+			}
+		}
+	]]></add>
+<!-- 
+	<add as="function" mode="connect" icon="images/prowim/function.gif"><![CDATA[
+		function (editor)
+		{
+			if (editor.defaultEdge != null)
+			{
+				editor.defaultEdge.style = 'functionEdge';
+			}
+		}
+	]]></add>
+ -->
+	<br/><hr/>
+	<add as="Swimlane" template="swimlane" icon="images/swimlane.gif"/>
+	<add as="Group" template="group" icon="images/group.gif"/>
+	<add as="Activity" template="activity" icon="images/prowim/activity.png"/>
+	<add as="Subprocess" template="subprocess" icon="images/prowim/subprocess.gif"/>
+	<add as="Role" template="role" icon="images/prowim/role.png"/>
+	<add as="Depot" template="depot" icon="images/cylinder.gif"/>
+	<add as="And" template="and" icon="images/prowim/und.gif"/>
+	<add as="Or" template="or" icon="images/prowim/oder.gif"/>
+	<add as="CombinationRules" template="combinationRules" icon="images/prowim/frei.gif"/>
+	<add as="Decision" template="decision" icon="images/prowim/entscheidung.gif"/> 
+	<br/><hr/>
+	<add as="Activity_Orange" template="activity_orange" icon="images/bund/activity-orange.gif"/>
+	<add as="Activity_Gray" template="activity_gray" icon="images/bund/activity-gray.gif"/>
+	<add as="Activity_Nesting" template="activity_nesting" icon="images/bund/activity-nesting.gif"/>
+	<br/><hr/>
+	<!-- <add as="cut" action="cut" icon="images/cut.gif"/> -->
+	<add as="copy" action="copyCell" icon="images/copy.gif"/>
+	<add as="paste" action="pasteCell" icon="images/paste.gif"/>
+	<add as="delete" action="deleteCell" icon="images/delete.gif"/>
+
+	<br/><hr/>
+	<add as="fit" action="fit" icon="images/zoom.gif"/>
+	<add as="zoomIn" action="zoomIn" icon="images/zoomin.gif"/>
+	<add as="zoomOut" action="zoomOut" icon="images/zoomout.gif"/>
+	<add as="actualSize" action="actualSize" icon="images/zoomactual.gif"/>
+	<!-- <add as="zoom" action="zoom" icon="images/zoom.gif"/> -->
+	<br/><hr/>
+	<add as="outline" action="toggleOutline" icon="images/outline.gif"/>
+	<add as="tasks" action="toggleTasks" icon="images/tasks.gif"/>
+
+</mxDefaultToolbar>

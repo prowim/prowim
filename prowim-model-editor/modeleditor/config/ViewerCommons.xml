@@ -1,0 +1,304 @@
+<!--
+ $Id: workflowEditor.xml,v 1.0 18/10/2009 Maziar Khodaei$
+ Copyright (c) 2009, Ebcot GmbH
+ 
+ Create groups for shapes.
+ 
+ This file is part of ProWim.
+
+ProWim is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProWim is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProWim.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von ProWim.
+
+ProWim ist Freie Software: Sie können es unter den Bedingungen
+der GNU General Public License, wie von der Free Software Foundation,
+Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+ProWim wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+Siehe die GNU General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+ -->
+<mxEditor defaultGroup="group" defaultEdge="edge"
+	helpWindowImage="images/help.gif"
+	tasksWindowImage="images/tasks.gif"
+	forcedInserting="0"
+	swimlaneRequired="0">
+	<include name="config/ViewerPopupMenu.xml"/>
+	<add as="onInit">
+		function (isFirstTime)
+		{
+			//this.showTasks();
+		}
+	</add>
+	<Array as="cycleAttributeValues">
+		<add value="#83027F"/>
+		<add value="#66B922"/>
+		<add value="#808913"/>
+		<add value="#CF0056"/>
+		<add value="#4679B6"/>
+	</Array>
+	<Array as="templates">
+		<add as="group">
+			<Group label="" description="" href="">
+				<mxCell vertex="1" style="group" connectable="0"/>
+			</Group>
+		</add>
+		<add as="edge">
+			<Edge label="" description="">
+				<mxCell edge="1">
+					<mxGeometry as="geometry" relative="1"/>
+				</mxCell>
+			</Edge>
+		</add>
+		<add as="swimlane">
+			<Swimlane label="Swimlane" description="" href="">
+				<mxCell vertex="1" style="swimlane" connectable="0">
+					<mxGeometry as="geometry" width="300" height="160"/>
+				</mxCell>
+			</Swimlane>
+		</add>
+		<add as="process">
+			<Process label="Prozess" description="" href="" prowimtype="PROCESS" prowimid="">
+				<mxCell vertex="1" style="rounded=1"  >		
+					<mxGeometry as="geometry" width="100" height="40"/>
+				</mxCell>
+			</Process>
+		</add>
+		<add as="activity">
+			<Activity label="Aktivität" description="" href="" prowimtype="ACTIVITY" prowimid="">
+				<mxCell vertex="1" style="rounded=1">		
+					<mxGeometry as="geometry" width="100" height="50"/>
+				</mxCell>
+			</Activity>
+		</add>
+		<add as="subprocess">
+			<Subprocess label="Teilprozess" description="" href="" prowimtype="SUBPROCESS" prowimid="">
+				<mxCell vertex="1" style="rounded" >		
+					<mxGeometry as="geometry" width="72" height="32"/>
+				</mxCell>
+			</Subprocess>
+		</add>
+		<add as="role">
+			<Role label="Rolle" description="" href="" prowimtype="ROLE" prowimid="">
+				<mxCell vertex="1"  >		
+					<mxGeometry as="geometry" width="50" height="50"/>
+				</mxCell>
+			</Role>
+		</add>
+		<add as="agitation">
+			<Agitation label="Taetigkeit" description="" href="" prowimtype="AGITATION" prowimid="">
+				<mxCell vertex="1"  >		
+					<mxGeometry as="geometry" width="50" height="50"/>
+				</mxCell>
+			</Agitation>
+		</add>
+		<add as="mean">
+			<Mean label="mean" description="" href="" prowimtype="MEAN" prowimid="">
+				<mxCell vertex="1"  style="fillColor=#FFFF00">		
+					<mxGeometry as="geometry" width="100" height="40"/>
+				</mxCell>
+			</Mean>
+		</add>
+		
+		<add as="depot">
+			<Depot label="Ablage" description="" href="" prowimtype="DEPOT" prowimid="">
+				<mxCell vertex="1"  style="shape=cylinder">		
+					<mxGeometry as="geometry" width="60" height="80"/>
+				</mxCell>
+			</Depot>
+		</add>
+		<add as="decision">
+			<Decision label="Entscheidung" description="" href="" prowimtype="DECISION" prowimid="">
+				<mxCell vertex="1"  style="shape=cylinder">		
+					<mxGeometry as="geometry" width="60" height="60"/>
+				</mxCell>
+			</Decision>
+		</add>
+
+<!-- ************************************************ -->	
+<!--Shapes for Bundesdruckerei -->
+	
+		<add as="activity_orange">
+			<Activity label="Aktivität" description="" href="" prowimtype="ACTIVITY" prowimid="">
+				<mxCell vertex="1" style="shape=activityShape;fillColor=#FF8000">		
+					<mxGeometry as="geometry" width="120" height="75"/>
+				</mxCell>
+			</Activity>
+		</add>
+
+		<add as="activity_gray">
+			<Activity label="Aktivität" description="" href="" prowimtype="ACTIVITY" prowimid="">
+				<mxCell vertex="1" style="shape=activityShape;fillColor=#C0C0C0">		
+					<mxGeometry as="geometry" width="120" height="75"/>
+				</mxCell>
+			</Activity>
+		</add>
+
+		<add as="activity_nesting">
+			<Activity label="Aktivität" description="" href="" prowimtype="ACTIVITY" prowimid="">
+				<mxCell vertex="1" style="shape=activityNestingShape;fillColor=#FF8000">		
+					<mxGeometry as="geometry" width="240" height="90"/>
+				</mxCell>
+			</Activity>
+		</add>
+		
+<!-- ************************************************ -->		
+
+
+		<add as="task">
+			<Task label="Task" description="" href="">
+				<mxCell vertex="1" >	
+					<mxGeometry as="geometry" width="72" height="32"/>
+				</mxCell>
+			</Task>
+		</add>
+		<add as="shape">
+			<Shape label="" description="" href="" prowimtype="">
+				<mxCell vertex="1" style="ellipse">		
+					<mxGeometry as="geometry" width="32" height="32"/>
+				</mxCell>
+			</Shape>
+		</add>
+
+		<add as="symbol">
+			<Symbol label="Symbol" description="" href="">
+				<mxCell vertex="1" style="symbol;image=images/symbols/event.png">		
+					<mxGeometry as="geometry" width="32" height="32"/>
+				</mxCell>
+			</Symbol>
+		</add>
+	</Array>
+	<add as="createTasks"><![CDATA[
+		function (div)
+		{
+			var off = 30;
+			
+			if (this.graph != null)
+			{
+				var self = this; // closure
+				var layer = this.graph.model.root.getChildAt(0);
+				mxUtils.para(div,  mxResources.get('examples'));
+				mxUtils.linkInvoke(div, mxResources.get('newDiagram'), self,
+					'open', 'diagrams/empty.xml', off);
+				mxUtils.br(div);
+				mxUtils.linkInvoke(div, mxResources.get('swimlanes'), self,
+					'open', 'diagrams/swimlanes.xml', off);
+				mxUtils.br(div);
+				mxUtils.linkInvoke(div, mxResources.get('travelBooking'), self,
+					'open', 'diagrams/travel-booking.xml', off);
+				mxUtils.br(div);
+				
+				if (!this.graph.isSelectionEmpty())
+				{
+					var cell = this.graph.getSelectionCell();
+					if (this.graph.getSelectionCount() == 1 &&
+						(this.graph.model.isVertex(cell) &&
+						cell.getEdgeCount() > 0) || this.graph.isSwimlane(cell))
+					{
+						mxUtils.para(div, 'Layout');
+						mxUtils.linkAction(div, mxResources.get('verticalTree'),
+							self, 'verticalTree', off);
+						mxUtils.br(div);
+						mxUtils.linkAction(div, mxResources.get('horizontalTree'),
+							self, 'horizontalTree', off);
+						mxUtils.br(div);
+					}
+					
+					mxUtils.para(div, 'Format');
+					
+					if (mxUtils.isNode(cell.value, 'Symbol'))
+					{
+						mxUtils.linkAction(div, mxResources.get('image'),
+							self, 'image', off);
+						mxUtils.br(div);
+					}
+					else
+					{
+						mxUtils.linkAction(div, mxResources.get('opacity'),
+							self, 'opacity', off);
+						mxUtils.br(div);
+						if (this.graph.model.isVertex(cell) ||
+							(cell.style != null && 
+							cell.style.indexOf("arrowEdge") >= 0))
+						{
+							mxUtils.linkAction(div, mxResources.get('gradientColor'),
+								self, 'gradientColor', off);
+							mxUtils.br(div);
+						}
+						if (this.graph.model.isEdge(cell))
+						{
+							mxUtils.linkAction(div, 'Straight Connector', self, 'straightConnector', off);
+							mxUtils.br(div);
+							mxUtils.linkAction(div, 'Elbow Connector', self, 'elbowConnector', off);
+							mxUtils.br(div);
+							mxUtils.linkAction(div, 'Arrow Connector', self, 'arrowConnector', off);
+							mxUtils.br(div);
+						}
+					}
+					
+					mxUtils.linkAction(div, 'Rounded', self, 'toggleRounded', off);
+					mxUtils.br(div);
+					if (this.graph.isSwimlane(cell) || this.graph.model.isEdge(cell))
+					{
+						mxUtils.linkAction(div, 'Orientation', self, 'toggleOrientation', off);
+						mxUtils.br(div);
+					}
+					
+					if (this.graph.getSelectionCount() > 1)
+					{
+						mxUtils.para(div, mxResources.get('align'));
+						mxUtils.linkAction(div, mxResources.get('left'),
+							self, 'alignCellsLeft', off);
+						mxUtils.br(div);
+						mxUtils.linkAction(div, mxResources.get('center'),
+							self, 'alignCellsCenter', off);
+						mxUtils.br(div);
+						mxUtils.linkAction(div, mxResources.get('right'),
+							self, 'alignCellsRight', off);
+						mxUtils.br(div);
+						mxUtils.linkAction(div, mxResources.get('top'),
+							self, 'alignCellsTop', off);
+						mxUtils.br(div);
+						mxUtils.linkAction(div, mxResources.get('middle'),
+							self, 'alignCellsMiddle', off);
+						mxUtils.br(div);
+						mxUtils.linkAction(div, mxResources.get('bottom'),
+							self, 'alignCellsBottom', off);
+						mxUtils.br(div);
+					}
+					
+					mxUtils.para(div, mxResources.get('selection'));
+					mxUtils.linkAction(div, mxResources.get('clearSelection'),
+						self, 'selectNone', off);
+					mxUtils.br(div);
+				}
+				else if (layer.getChildCount() > 0)
+				{
+					mxUtils.para(div, mxResources.get('selection'));
+					mxUtils.linkAction(div, mxResources.get('selectAll'),
+						self, 'selectAll', off);
+					mxUtils.br(div);
+				}
+				
+				mxUtils.br(div);
+			}
+		}
+	]]></add>
+
+</mxEditor>

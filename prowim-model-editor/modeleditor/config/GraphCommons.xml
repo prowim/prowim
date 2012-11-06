@@ -1,0 +1,217 @@
+<!--
+ $Id: workflowEditor.xml,v 1.0 18/10/2009 Maziar Khodaei$
+ Copyright (c) 2009, Ebcot GmbH
+ 
+This file is part of ProWim.
+
+ProWim is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProWim is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProWim.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von ProWim.
+
+ProWim ist Freie Software: Sie können es unter den Bedingungen
+der GNU General Public License, wie von der Free Software Foundation,
+Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+ProWim wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+Siehe die GNU General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+ -->
+
+<mxGraph alternateEdgeStyle="verticalEdge" dropEnabled="1">
+	<add as="isAutoSizeCell"><![CDATA[
+		function(cell)
+		{
+			return this.isSwimlane(cell);
+		}
+	]]></add>
+	<add as="isSwimlane"><![CDATA[
+		function (cell)
+		{
+			return mxUtils.isNode(this.model.getValue(cell), 'swimlane');
+		}
+	]]></add>
+	<add as="isAllowOverlapParent"><![CDATA[
+		function(cell)
+		{
+			return !this.isSwimlane(cell.parent);
+		}
+	]]></add>
+	<add as="getTooltipForCell"><![CDATA[
+		function(cell)
+		{
+			var desc = cell.getAttribute('description');
+			if (desc == null || desc.length == 0)
+			{
+				desc = '';
+			}
+			return desc;
+		}
+	]]></add>
+	<add as="convertValueToString"><![CDATA[
+		function(cell)
+		{
+			return cell.getAttribute('label');
+		}
+	]]></add>
+	<add as="isHtmlLabel"><![CDATA[
+			function(cell)
+			{
+				return !this.isSwimlane(cell);
+			}
+	]]></add> 
+	
+	<mxGraphModel as="model">
+		<add as="valueForCellChanged"><![CDATA[
+			function(cell, value)
+			{
+				var previous = null;
+				
+				if (isNaN(value.nodeType))
+				{
+					previous = cell.getAttribute('label');
+					cell.setAttribute('label', value);
+				}
+				else
+				{
+					previous = cell.value;
+					cell.value = value;
+				}
+				
+				return previous;
+			}
+		]]></add>
+		<root>
+			<Workflow label="ProWimWorkflow" description="" href="" id="0"/>
+			<Layer label="Default Layer">
+				<mxCell parent="0"/>
+			</Layer>
+		</root>
+	</mxGraphModel>
+	<mxStylesheet as="stylesheet">
+		<add as="text">
+			<add as="shape" value="rectangle"/>
+			<add as="perimeter" value="rectanglePerimeter"/>
+			<add as="fontSize" value="12"/>
+			<add as="align" value="center"/>
+			<add as="verticalAlign" value="top"/>
+		</add>
+		<add as="defaultVertex" extend="text">
+			<add as="shape" value="rectangle"/>
+			<add as="fontSize" value="11"/>
+			<add as="align" value="center"/>
+			<add as="verticalAlign" value="middle"/>
+			<add as="shadow" value="1"/>
+			<add as="strokeColor" value="#444444"/>
+			<add as="fillColor" value="#C3D9FF"/>
+		</add>
+		
+		<add as="defaultEdge">
+			<add as="shape" value="connector"/>
+			<add as="labelBackgroundColor" value="transparent"/>
+			<add as="rounded" value="1"/>
+			<add as="edgeStyle" value="elbowEdgeStyle"/> 
+			<add as="endArrow" value="classic"/>
+			<add as="fontSize" value="10"/>
+			<add as="align" value="center"/>
+			<add as="verticalAlign" value="bottom"/>
+			<add as="strokeColor" value="black"/>
+		</add>
+		
+<!-- Edges for ProWim -->
+		<add as="relationEdge" extend="defaultEdge">
+			<add as="shape" value="connector"/>
+			<add as="endArrow" value="classic"/>
+			<add as="strokeColor" value="red"/>
+			<add as="elbow" value="vertical"/>
+		</add>
+		<add as="controlFlowEdge" extend="defaultEdge">
+			<add as="shape" value="connector"/>
+			<add as="dashed" value="1"/>
+			<add as="endArrow" value="classic"/>
+			<add as="startArrow" value="oval"/>
+			<add as="textOpacity" value="0"/>
+			<add as="elbow" value="vertical"/>
+		</add>
+		<add as="jobEdge" extend="defaultEdge">
+			<add as="elbow" value="vertical"/>
+			<add as="strokeColor" value="blue"/>
+		</add>
+		<add as="productEdge" extend="defaultEdge">
+			<add as="elbow" value="vertical"/>
+		</add>
+		<add as="functionEdge" extend="defaultEdge">
+			<add as="elbow" value="vertical"/>
+			<add as="strokeColor" value="green"/>
+			<add as="elbow" value="vertical"/>
+		</add>
+		
+<!-- Edges end-->		
+
+
+		<add as="arrowEdge" extend="defaultEdge">
+			<add as="shape" value="arrow"/>
+			<add as="fillColor" value="red"/>
+		</add>
+		
+		<add as="swimlane" extend="defaultVertex">
+			<add as="shape" value="swimlane"/>
+			<add as="fontSize" value="12"/>
+			<add as="startSize" value="23"/>
+			<add as="horizontal" value="0"/>
+			<add as="verticalAlign" value="top"/>
+			<add as="fontColor" value="white"/>
+			<add as="labelBackgroundColor" value="none"/>
+			<!-- <add as="gradientColor" value="black"/> -->
+		</add>
+		<add as="group" extend="defaultVertex">
+			<add as="shape" value="rectangle"/>
+			<add as="rounded" value="1"/>
+			<add as="verticalAlign" value="top"/>
+			<add as="strokeColor" value="black"/>
+			<add as="dashed" value="1"/>
+			<add as="opacity" value="50"/>
+		</add>
+		<add as="rounded" extend="defaultVertex">
+			<add as="rounded" value="1"/>
+		</add>
+		<add as="ellipse" extend="defaultVertex">
+			<add as="shape" value="ellipse"/>
+			<add as="perimeter" value="ellipsePerimeter"/>
+		</add>
+		<add as="doubleEllipse" extend="ellipse">
+			<add as="shape" value="doubleEllipse"/>
+		</add>
+		<add as="rhombus" extend="defaultVertex">
+			<add as="shape" value="rhombus"/>
+			<add as="perimeter" value="rhombusPerimeter"/>
+		</add>
+		<add as="actor" extend="defaultVertex">
+			<add as="shape" value="actor"/>
+		</add>
+		<add as="symbol">
+			<add as="shape" value="image"/>
+			<add as="perimeter" value="rectanglePerimeter"/>
+			<add as="labelBackgroundColor" value="white"/>
+			<add as="fontSize" value="10"/>
+			<add as="align" value="center"/>
+			<add as="verticalAlign" value="top"/>
+			<add as="verticalLabelPosition" value="bottom"/>
+		</add>
+	</mxStylesheet>
+</mxGraph>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="org.prowim.rap.modeleditor"
+         name="Model Editor"
+         point="org.eclipse.rap.ui.resources">
+      <resource
+            class="org.prowim.rap.modeleditor.resources.ModelEditorResource">
+      </resource>
+      <resource
+            class="org.prowim.rap.modeleditor.resources.JQueryResource">
+      </resource>
+   </extension>
+
+</plugin>

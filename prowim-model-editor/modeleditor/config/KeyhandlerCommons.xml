@@ -1,0 +1,63 @@
+<!--
+ $Id: workflowEditor.xml,v 1.0 18/10/2009 Maziar Khodaei$
+ Copyright (c) 2009, Ebcot GmbH
+ 
+ KeyHandler.
+ 
+ This file is part of ProWim.
+
+ProWim is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+ProWim is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with ProWim.  If not, see <http://www.gnu.org/licenses/>.
+
+Diese Datei ist Teil von ProWim.
+
+ProWim ist Freie Software: Sie können es unter den Bedingungen
+der GNU General Public License, wie von der Free Software Foundation,
+Version 3 der Lizenz oder (nach Ihrer Option) jeder späteren
+veröffentlichten Version, weiterverbreiten und/oder modifizieren.
+
+ProWim wird in der Hoffnung, dass es nützlich sein wird, aber
+OHNE JEDE GEWÄHELEISTUNG, bereitgestellt; sogar ohne die implizite
+Gewährleistung der MARKTFÄHIGKEIT oder EIGNUNG FÜR EINEN BESTIMMTEN ZWECK.
+Siehe die GNU General Public License für weitere Details.
+
+Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
+Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>.
+ -->
+
+<mxEditor>
+	<mxDefaultKeyHandler as="keyHandler">
+		<add as="8" action="collapse"/>
+		<add as="13" action="expand"/>
+		<add as="33" action="exitGroup"/>
+		<add as="34" action="enterGroup"/>
+		<add as="35" action="refresh"/>
+		<add as="36" action="home"/>
+		<add as="37" action="selectPrevious"/>
+		<add as="38" action="selectParent"/>
+		<add as="40" action="selectChild"/>
+		<add as="39" action="selectNext"/>
+		<add as="46" action="deleteCell"/>
+		<add as="65" control="1" action="selectAll"/>
+		<add as="90" control="1" action="undo"/>
+		<add as="89" control="1" action="redo"/>
+		<add as="88" control="1" action="cut"/>
+		<add as="67" control="1" action="copy"/>
+		<add as="86" control="1" action="paste"/>
+		<add as="71" control="1" action="group"/>
+		<add as="85" control="1" action="ungroup"/>
+		<add as="113" action="editName"/>		
+		<add as="107" action="zoomIn"/>
+		<add as="109" action="zoomOut"/>
+	</mxDefaultKeyHandler>
+</mxEditor>

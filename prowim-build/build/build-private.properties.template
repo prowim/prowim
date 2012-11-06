@@ -1,0 +1,13 @@
+#Save an edited copy of this file as build-private.properties
+
+#The root location of the JBoss Appserver. Always use Slash (/) as file separator !
+appserver.jboss.home=/Developer/Applications/jboss-5.1.0.GA.Ebcot/
+
+#The server-name to deploy the artifacts to. ONE!
+jboss.customer=developer
+
+#The customers to deploy the artifacts to the deploy.tmp.dir. ZERO or more!
+deploy.customers=
+
+#deployment dir. customer builds will be saved into this directory
+deploy.tmp.dir=c:/deploy

@@ -1,0 +1,26 @@
+div.base {
+	position: absolute;
+	overflow: auto;
+	white-space: nowrap;
+	font-family: Arial;
+	font-size: 8pt;
+}
+
+div.base#graph {
+	border-style: solid;
+	border-color: #F2F2F2;
+	border-width: 1px;
+	background: url('images/grid.gif');
+}
+
+svg {
+	overflow: auto;
+	min-width:2000px !important;
+	min-height:1000px !important;
+	allowtransparency : true;
+}
+
+body {
+	overflow: hidden;
+	allowtransparency : true;
+}
