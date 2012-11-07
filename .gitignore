@@ -7,4 +7,5 @@ ant_dist/
 ant_test/
 ant_test_results/
 .svn/
+.settings/
 .com.apple*

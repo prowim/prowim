@@ -1,1 +1,5 @@
 bin/
+modeleditor/js/mxGraph/css
+modeleditor/js/mxGraph/images
+modeleditor/js/mxGraph/js
+modeleditor/js/mxGraph/resources
