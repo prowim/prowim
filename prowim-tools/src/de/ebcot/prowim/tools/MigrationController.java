@@ -105,7 +105,7 @@ public class MigrationController
             e.printStackTrace();
         }
 
-        RemoteClient client = createAdminConnection("Support-Ebcot-User", "lisaminelli", url, qname);
+        RemoteClient client = createAdminConnection("Support-Ebcot-User", "xxx", url, qname);
         adminService = client.getAdminService();
         adminService.initKnowledgeBase();
     }
