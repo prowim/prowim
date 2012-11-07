@@ -10,3 +10,4 @@
 		<config-property name="ProtegeProject" type="java.lang.String">/srv/appserver/jboss-5.1.0.GA/server/abacus/etc/ontology/prowimcore.pprj</config-property>
 	</no-tx-connection-factory>
 </connection-factories>
+
