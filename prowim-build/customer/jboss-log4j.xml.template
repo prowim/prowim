@@ -119,8 +119,8 @@
      <errorHandler class="org.jboss.logging.util.OnlyOnceErrorHandler"/>
      <param name="Threshold" value="ERROR"/>
      <!-- For developing purposes use your own address -->
-     <param name="To" value="support@prowim.com"/>
-     <param name="From" value="info@prowim.com"/>
+     <param name="To" value="support@prowim.org"/>
+     <param name="From" value="info@prowim.org"/>
      <!-- Customize the Subject for the target deployment customer -->
      <param name="Subject" value="[Developer] JBoss Sever Errors"/>
      <param name="SMTPHost" value="mail.ebcot.de"/>
