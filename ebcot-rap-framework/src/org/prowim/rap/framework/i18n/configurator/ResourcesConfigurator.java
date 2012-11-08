@@ -77,7 +77,7 @@ public final class ResourcesConfigurator
      * Description.
      * 
      * @param class1 Class
-     * @param bundle Name of plug in bundle. Is normally define as Activator ID, e.g. "de.ebcot.rap.framework".
+     * @param bundle Name of plug in bundle. Is normally define as Activator ID, e.g. "org.prowim.rap.framework".
      */
     public static void configure(@SuppressWarnings("rawtypes") Class class1, String bundle)
     {

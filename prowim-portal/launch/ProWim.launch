@@ -23,7 +23,7 @@
 </listAttribute>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -console -consolelog -clean"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dorg.osgi.service.http.port=9090 -Dosgi.noShutdown=true -Declipse.ignoreApp=true&#13;&#10;-Xms128m -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=1024m&#13;&#10;-Dprowim.appserver.url=localhost&#13;&#10;-Dorg.eclipse.rwt.enableUITests=true&#13;&#10;-Djava.endorsed.dirs=${PROWIM_JBOSS_ENDORSED_DIR}&#13;&#10;-Djboss.server.home.dir=${workspace_loc}/prowim-server/etc/appserver&#13;&#10;-Dorg.eclipse.rwt.clientLibraryVariant=DEBUG&#13;&#10;-Dprowim.portal.session.timeout=5400&#13;&#10;-Dde.ebcot.prowim.server.port=8080&#13;&#10;-Dfile.encoding=UTF-8"/>
+<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dorg.osgi.service.http.port=9090 -Dosgi.noShutdown=true -Declipse.ignoreApp=true&#13;&#10;-Xms128m -Xmx512m -XX:PermSize=256m -XX:MaxPermSize=1024m&#13;&#10;-Dprowim.appserver.url=localhost&#13;&#10;-Dorg.eclipse.rwt.enableUITests=true&#13;&#10;-Djava.endorsed.dirs=${PROWIM_JBOSS_ENDORSED_DIR}&#13;&#10;-Djboss.server.home.dir=${workspace_loc}/prowim-server/etc/appserver&#13;&#10;-Dorg.eclipse.rwt.clientLibraryVariant=DEBUG&#13;&#10;-Dprowim.portal.session.timeout=5400&#13;&#10;-Dorg.prowim.server.port=8080&#13;&#10;-Dfile.encoding=UTF-8"/>
 <stringAttribute key="pde.version" value="3.3"/>
 <setAttribute key="selected_features">
 <setEntry value="org.eclipse.rap.runtime.sdk:default"/>
@@ -33,5 +33,5 @@
 <booleanAttribute key="tracing" value="false"/>
 <booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
-<stringAttribute key="workspace_bundles" value="de.ebcot.prowim.logging@default:false,org.prowim.portal@5:default,org.prowim.rap.modeleditor@5:default,de.prowim.jboss@5:default,org.prowim.data@5:default,org.prowim.rap.framework@default:default"/>
+<stringAttribute key="workspace_bundles" value="org.prowim.data@5:default,org.prowim.jboss@default:default,org.prowim.logging@default:false,org.prowim.portal@5:default,org.prowim.rap.framework@default:default,org.prowim.rap.modeleditor@5:default"/>
 </launchConfiguration>

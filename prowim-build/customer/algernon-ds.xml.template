@@ -6,7 +6,7 @@
 	<no-tx-connection-factory>
 		<jndi-name>algernon.DataSource</jndi-name>
 		<rar-name>prowimservices.ear#prowim-algernon-connector.rar</rar-name>
-		<connection-definition>de.ebcot.jca.connector.algernon.DataSource</connection-definition>
+		<connection-definition>org.prowim.jca.connector.algernon.DataSource</connection-definition>
 		<config-property name="ProtegeProject" type="java.lang.String">/srv/appserver/jboss-5.1.0.GA/server/developer/etc/ontology/prowimcore.pprj</config-property>
 	</no-tx-connection-factory>
 </connection-factories>

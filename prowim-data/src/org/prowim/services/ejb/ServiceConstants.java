@@ -442,7 +442,7 @@ public final class ServiceConstants
     /**
      * The Namespace for the {@link OntologyErrorException ontology error}
      */
-    public static final String ONTOLOGY_ERROR_NAMESPACE         = "http://algernon.connector.jca.ebcot.de/";
+    public static final String ONTOLOGY_ERROR_NAMESPACE         = "http://algernon.connector.jca.prowim.org/";
 
     /**
      * The {@link OntologyErrorException ontology error}

@@ -11,10 +11,10 @@ Export-Package: org.prowim.rap.framework.components;uses:="org.eclipse.jface.act
   uses:="org.eclipse.jface.action,
    org.eclipse.jface.viewers,
    org.eclipse.swt.widgets,
-   de.ebcot.rap.framework.components.table,
-   de.ebcot.rap.framework.components",
+   org.prowim.rap.framework.components.table,
+   org.prowim.rap.framework.components",
  org.prowim.rap.framework.components.table;uses:="org.eclipse.swt.graphics,org.eclipse.jface.viewers,org.eclipse.swt.widgets",
- org.prowim.rap.framework.i18n;uses:="de.ebcot.rap.framework.i18n.consts",
+ org.prowim.rap.framework.i18n;uses:="org.prowim.rap.framework.i18n.consts",
  org.prowim.rap.framework.i18n.configurator,
  org.prowim.rap.framework.i18n.consts;
   uses:="org.eclipse.jface.action,
@@ -26,7 +26,7 @@ Export-Package: org.prowim.rap.framework.components;uses:="org.eclipse.jface.act
    org.eclipse.jface.resource,
    org.jdom,
    org.eclipse.swt.graphics,
-   de.ebcot.rap.framework.i18n.consts,
+   org.prowim.rap.framework.i18n.consts,
    org.eclipse.swt.widgets",
  org.prowim.rap.framework.menu;
   uses:="org.eclipse.jface.action,
@@ -36,7 +36,7 @@ Export-Package: org.prowim.rap.framework.components;uses:="org.eclipse.jface.act
  org.prowim.rap.framework.resource;uses:="org.eclipse.swt.graphics",
  org.prowim.rap.framework.toolbar;uses:="org.eclipse.jface.action,org.eclipse.swt.graphics,org.eclipse.swt.widgets",
  org.prowim.rap.framework.utils,
- org.prowim.rap.framework.validation;uses:="de.ebcot.rap.framework.components"
+ org.prowim.rap.framework.validation;uses:="org.prowim.rap.framework.components"
 Bundle-ClassPath: lib/commons-lang.jar,
  .,
  lib/joda-time-1.6.jar,

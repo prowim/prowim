@@ -89,7 +89,7 @@ public final class ResourcesLocator
 
     private final static String     PROWIM_SERVER_PROPERTIES_FILE      = "prowim.properties";
 
-    private final static String     PROWIM_SERVER_PORT_PROP            = "de.ebcot.prowim.server.port";
+    private final static String     PROWIM_SERVER_PORT_PROP            = "org.prowim.server.port";
 
     private final static String     REPOSITORY_PATH                    = "/server";
     private final static String     REPOSITORY_DIR                     = "/etc/repository";
