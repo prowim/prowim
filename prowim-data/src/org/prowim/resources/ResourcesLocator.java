@@ -96,7 +96,6 @@ public final class ResourcesLocator
     private final static String     REPOSITORY_PROCESSES_CHART_DIR     = REPOSITORY_DIR + "/processes_charts";
     private final static String     CONFIG_DIR                         = "/conf/";
     private final static String     RESOURCES_TEMP_DIR                 = "/etc/resources/temp/";
-
     private final static Logger     LOG                                = Logger.getLogger(ResourcesLocator.class);
 
     // JNLP Property.
@@ -259,6 +258,8 @@ public final class ResourcesLocator
                 {
                     text[i] = bl.get(i).byteValue();
                 }
+
+                is.close();
                 version = new String(text);
             }
             catch (Exception e)
