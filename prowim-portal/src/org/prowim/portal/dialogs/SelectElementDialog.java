@@ -63,7 +63,6 @@ import org.prowim.portal.tables.DefaultTableModel;
 import org.prowim.portal.utils.GlobalConstants;
 
 
-
 /**
  * Shows a list of items to select or to create a new item. This uses by elements, which are re-usable in model editor. <br>
  * Those are e.g. roles, means (Mittel), depots(Ablage) or products.
