@@ -41,6 +41,10 @@ Sie sollten eine Kopie der GNU General Public License zusammen mit diesem
 Programm erhalten haben. Wenn nicht, siehe <http://www.gnu.org/licenses/>. */
 package org.prowim.utils;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
+
 import org.prowim.resources.ResourcesLocator;
 
 
@@ -53,6 +57,53 @@ import org.prowim.resources.ResourcesLocator;
  */
 public final class ServerProperties
 {
+    private static final String     JBOSS_SERVER_HOME_DIR_PROPERTY_KEY = "jboss.server.home.dir";
+
+    private final static String     PROWIM_SERVER_PROPERTIES_FILE      = "prowim.properties";
+
+    private final static String     CONFIG_DIR                         = "/conf/";
+
+    private static final Properties PROWIM_PROPERTIES                  = new Properties();
+    private final static String     DMS_USER                           = "org.prowim.dms.user";
+    private final static String     DMS_PASSWORD                       = "org.prowim.dms.password";
+
+    static
+    {
+        try
+        {
+            FileInputStream stream = new FileInputStream(System.getProperty(JBOSS_SERVER_HOME_DIR_PROPERTY_KEY) + CONFIG_DIR
+                    + PROWIM_SERVER_PROPERTIES_FILE);
+
+            PROWIM_PROPERTIES.load(stream);
+            stream.close();
+        }
+        catch (IOException e)
+        {
+            throw new RuntimeException("Unable to load " + PROWIM_SERVER_PROPERTIES_FILE);
+        }
+    }
+
+    /**
+     * 
+     * Returns Admin user name and password used to connect to the DMS repository
+     * 
+     * @return String User name
+     */
+    public static String getDMSUser()
+    {
+        return PROWIM_PROPERTIES.getProperty(DMS_USER);
+    }
+
+    /**
+     * 
+     * Returns Admin password and password used to connect to the repository
+     * 
+     * @return String User password.
+     */
+    public static String getDMSPassword()
+    {
+        return PROWIM_PROPERTIES.getProperty(DMS_PASSWORD);
+    }
 
     /**
      * The Context root.

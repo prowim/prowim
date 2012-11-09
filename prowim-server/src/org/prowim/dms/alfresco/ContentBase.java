@@ -75,10 +75,6 @@ import de.ebcot.tools.logging.Logger;
 public abstract class ContentBase implements ContentManager
 {
 
-    /** Admin user name and password used to connect to the repository */
-    protected static final String    USER_NAME               = "admin";
-    /** Password. */
-    protected static final String    PASSWORD                = "ProWimAdmin";
     /** A Folder to store the prowim contents. */
     protected static final Reference PROWIM_FOLDER_REFERENCE = new Reference(DMSStoreRegistry.STORE_REF, null, "/app:company_home/cm:sample_folder");
     /** Folder name. */
