@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/javassist.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jaxb-impl.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jaxws-tools.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-common-core.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-ejb3-ext-api.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-javaee.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-logging-log4j.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-logging-spi.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-remoting.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-security-spi.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jboss-xml-binding.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbosssx-client.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-common.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-framework.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-native-client.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-native-core.jar" sourcepath="lib/src/jbossws-native-src-dist/modules/core/src/main/java"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-native-jaxrpc.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-native-jaxws.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-native-saaj.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/jbossws-spi.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/mail.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/policy.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/wsdl4j.jar"/>
+	<classpathentry exported="true" kind="lib" path="lib/jboss5.0/wstx.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry exported="true" kind="lib" path="lib/commons-logging.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

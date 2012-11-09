@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="lib" path="lib/jgoodies.jar"/>
+	<classpathentry kind="lib" path="lib/looks.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jaxws-tools.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-common-core.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-javaee.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-remoting.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-security-spi.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-xml-binding.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-common.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-client.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-core.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-jaxrpc.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-jaxws.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-saaj.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-spi.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/mail.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/policy.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/wsdl4j.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/wstx.jar"/>
+	<classpathentry kind="lib" path="lib/jaxb-impl.jar"/>
+	<classpathentry kind="lib" path="lib/xerces.jar"/>
+	<classpathentry kind="lib" path="lib/javassist.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/prowim-server"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/prowim-algernon-connector"/>
+	<classpathentry kind="lib" path="lib/log4j-1.2.15.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/prowim-data"/>
+	<classpathentry kind="lib" path="lib/ebcot-tools-1.2.0.jar"/>
+	<classpathentry kind="src" path=".apt_generated">
+		<attributes>
+			<attribute name="optional" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="output" path="bin"/>
+</classpath>

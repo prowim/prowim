@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="test"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-jaxrpc.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jaxws-tools.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-common-core.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-spi.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-logging-spi.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-remoting.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-xml-binding.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-common.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-client.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-core.jar" sourcepath="/prowim-jboss/lib/src/jbossws-native-src-dist/modules/core/src/main/java"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossws-native-jaxws.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/wsdl4j.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/wstx.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/policy.jar"/>
+	<classpathentry kind="lib" path="lib/commons-lang.jar" sourcepath="/prowim-portal/lib/src/commons-lang-2.1-src.zip"/>
+	<classpathentry kind="lib" path="lib/joda-time-1.6.jar" sourcepath="lib/src/joda-time-1.6-src.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/activation.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/alfresco-web-service-client.jar" sourcepath="lib/alfresco/alfresco-web-service-client.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/axis-1.4.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/bcprov-jdk15-137.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/commons-discovery-0.2.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/commons-logging-1.1.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/jaxrpc.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/opensaml-1.0.1.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/saaj.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/wsdl4j-1.5.1.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/wss4j.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/xalan.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/spring-1.2.6.jar"/>
+	<classpathentry kind="lib" path="lib/alfresco/xmlsec-1.4.1.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbosssx-client.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-javaee.jar" sourcepath="C:/Programme/Java/jdk1.6.0_11/src.zip"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbossas-remoting.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-security-spi.jar"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jbosssx.jar" sourcepath="/jbosssx/src/"/>
+	<classpathentry kind="lib" path="lib/jboss5.0/jboss-ejb3-ext-api.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/prowim-algernon-connector"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/prowim-data"/>
+	<classpathentry kind="lib" path="lib/mail.jar"/>
+	<classpathentry kind="lib" path="lib/serializer.jar"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/prowim-model-editor"/>
+	<classpathentry kind="lib" path="lib/ebcot-tools-1.2.0.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
