@@ -61,6 +61,7 @@ import org.prowim.portal.i18n.Resources;
 import org.prowim.portal.tables.DefaultTable;
 import org.prowim.portal.tables.DefaultTableModel;
 import org.prowim.portal.utils.GlobalConstants;
+import org.prowim.rap.framework.components.table.DefaultTableViewer;
 
 
 /**
@@ -126,11 +127,12 @@ public class SelectElementDialog extends DefaultDialog
         selectionGroup.setText(selectionLabel);
 
         ScrolledComposite scrollComp = new ScrolledComposite(selectionGroup, SWT.NONE);
-        scrollComp.setLayoutData(new GridData(SWT.FILL, SWT.TOP, true, false));
-        scrollComp.setLayout(new GridLayout());
+        GridData gridData = new GridData(SWT.FILL, SWT.TOP, true, true);
+        gridData.heightHint = 150;
+        scrollComp.setLayoutData(gridData);
         scrollComp.setExpandHorizontal(true);
-        scrollComp.setExpandVertical(false);
-        scrollComp.setMinHeight(50);
+        scrollComp.setExpandVertical(true);
+        
 
         final DefaultTable selectionTable = new DefaultTable(scrollComp, selectionModel, SWT.SINGLE | SWT.V_SCROLL);
         selectionTable.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
