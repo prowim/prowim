@@ -8,7 +8,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.eclipse.rap.ui;bundle-version="1.5.0",
  org.eclipse.equinox.http.registry;bundle-version="1.1.100",
  org.apache.log4j;bundle-version="1.2.13",
- org.prowim.data;bundle-version="2.0.0"
+ org.prowim.data;bundle-version="3.0.0"
 Export-Package: org.prowim.rap.modeleditor;uses:="org.eclipse.rwt.resources,org.eclipse.swt.widgets,org.eclipse.swt.browser"
 Bundle-ClassPath: .,
  lib/commons-lang.jar,

@@ -6,7 +6,6 @@ import javax.interceptor.InvocationContext;
 import org.alfresco.webservice.util.AuthenticationUtils;
 import org.prowim.datamodel.dms.DMSException;
 import org.prowim.datamodel.dms.DMSFault;
-import org.prowim.resources.ResourcesLocator;
 import org.prowim.utils.ServerProperties;
 
 

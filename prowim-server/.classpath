@@ -44,7 +44,6 @@
 	<classpathentry combineaccessrules="false" kind="src" path="/prowim-data"/>
 	<classpathentry kind="lib" path="lib/mail.jar"/>
 	<classpathentry kind="lib" path="lib/serializer.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/prowim-model-editor"/>
 	<classpathentry kind="lib" path="lib/ebcot-tools-1.2.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

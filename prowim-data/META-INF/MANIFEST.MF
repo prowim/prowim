@@ -70,5 +70,5 @@ Export-Package: org.prowim.data;
 Bundle-Vendor: prowim.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.apache.log4j;bundle-version="1.2.13",
- org.prowim.jboss;bundle-version="1.0.0"
+ org.prowim.jboss;bundle-version="3.0.0"
 DynamicImport-Package: *
