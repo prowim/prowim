@@ -56,6 +56,7 @@ import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.events.KeyAdapter;
 import org.eclipse.swt.events.KeyEvent;
+import org.eclipse.swt.events.KeyListener;
 import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.SelectionAdapter;
@@ -293,17 +294,30 @@ public class KnowledgeSearchView extends DefaultView
         searchTxt = new Text(searchAreaGroup, SWT.BORDER);
         searchTxt.setLayoutData(new GridData(GridData.FILL_HORIZONTAL));
 
-        searchTxt.addKeyListener(new KeyAdapter()
-        {
-            @Override
-            public void keyPressed(KeyEvent e)
-            {
-                if (e.keyCode == 13)
-                {
-                    setResults();
-                }
-            }
-        });
+//                                 new KeyAdapter()
+//        {
+//            /**
+//             * 
+//             */
+//            private static final long serialVersionUID = 1L;
+//
+//            @Override
+//            public void keyPressed(KeyEvent e)
+//            {
+//                if (e.keyCode == SWT.CR || e.keyCode == SWT.KEYPAD_CR)
+//                {
+//                    setResults();
+//                }
+//                super.keyPressed(e);
+//            }
+//            
+//            @Override
+//            public void keyReleased(KeyEvent e) {
+//              System.out.println("Key released");
+//              
+//            }
+//            
+//        });
 
         Button searchBtn = new Button(searchAreaGroup, SWT.PUSH);
         searchBtn.setImage(Resources.Frames.Header.Actions.SEARCH.getImage());

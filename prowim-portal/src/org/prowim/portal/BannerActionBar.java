@@ -225,20 +225,20 @@ public class BannerActionBar extends Composite
         fdsearchTxt.height = 24;
         fdsearchTxt.width = 150;
 
-        searchTxt.addKeyListener(new KeyListener()
-        {
-            @Override
-            public void keyReleased(KeyEvent e)
-            {
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e)
-            {
-                if (e.keyCode == 13)
-                    startSearch();
-            }
-        });
+//        searchTxt.addKeyListener(new KeyListener()
+//        {
+//            @Override
+//            public void keyReleased(KeyEvent e)
+//            {
+//            }
+//
+//            @Override
+//            public void keyPressed(KeyEvent e)
+//            {
+//                if (e.keyCode == 13)
+//                    startSearch();
+//            }
+//        });
 
         // Create Search-Button
         final Action searchAction = Resources.Frames.Header.Actions.SEARCH.getAction(new Listener()
