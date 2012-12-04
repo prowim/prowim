@@ -4,13 +4,13 @@ Bundle-Name: Prowim-jboss
 Bundle-SymbolicName: org.prowim.jboss;singleton:=true
 Bundle-Version: 3.0.0
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Bundle-ClassPath: lib/commons-logging.jar,
- .,
- lib/jboss5.0/javassist.jar,
+DynamicImport-Package: *
+Bundle-Vendor: prowim.org
+Bundle-ClassPath: lib/jboss5.0/javassist.jar,
  lib/jboss5.0/jaxb-impl.jar,
+ lib/jboss5.0/jaxws-tools.jar,
  lib/jboss5.0/jboss-common-core.jar,
  lib/jboss5.0/jboss-javaee.jar,
- lib/jboss5.0/jbossws-spi.jar,
  lib/jboss5.0/jboss-logging-spi.jar,
  lib/jboss5.0/jboss-remoting.jar,
  lib/jboss5.0/jboss-security-spi.jar,
@@ -21,12 +21,11 @@ Bundle-ClassPath: lib/commons-logging.jar,
  lib/jboss5.0/jbossws-native-core.jar,
  lib/jboss5.0/jbossws-native-jaxws.jar,
  lib/jboss5.0/jbossws-native-saaj.jar,
- lib/jboss5.0/jaxws-tools.jar,
+ lib/jboss5.0/jbossws-spi.jar,
  lib/jboss5.0/mail.jar,
  lib/jboss5.0/policy.jar,
- lib/jboss5.0/wsdl4j.jar
-DynamicImport-Package: *
-Bundle-Vendor: prowim.org
+ lib/jboss5.0/wsdl4j.jar,
+ lib/commons-logging.jar
 Export-Package: com.ibm.wsdl,
  com.ibm.wsdl.extensions,
  com.ibm.wsdl.extensions.http,
