@@ -49,12 +49,15 @@ import org.eclipse.swt.custom.SashForm;
 import org.eclipse.swt.layout.GridData;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Group;
 import org.prowim.portal.controller.knowledge.KnowledgeStructureController;
 import org.prowim.portal.i18n.Resources;
+import org.prowim.portal.models.tree.impl.DefaultLeaf;
 import org.prowim.portal.update.UpdateNotification;
 import org.prowim.portal.update.UpdateNotificationCollection;
 import org.prowim.portal.update.UpdateRegistry.EntityType;
+import org.prowim.portal.utils.GlobalConstants;
 import org.prowim.portal.view.DefaultView;
 import org.prowim.portal.view.process.CommonTreeView;
 
@@ -78,6 +81,8 @@ public class KnowledgeStructureView extends DefaultView
     private CommonTreeView               treeViewKnowledgeObjects;
     private CommonTreeView               treeViewOrganizationalElements;
 
+    
+    private DefaultLeaf defaultLeaf;
     /**
      * {@inheritDoc}
      * 
@@ -107,7 +112,7 @@ public class KnowledgeStructureView extends DefaultView
         SashForm sashForm = new SashForm(container, SWT.VERTICAL);
         sashForm.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 
-        Composite topComposite = new Composite(sashForm, SWT.NONE);
+        final Composite topComposite = new Composite(sashForm, SWT.NONE);
         topComposite.setLayout(new GridLayout(2, true));
         topComposite.setLayoutData(new GridData(GridData.FILL_BOTH));
 
@@ -128,15 +133,43 @@ public class KnowledgeStructureView extends DefaultView
      * 
      * @param container Composite to add the widget
      */
-    private CommonTreeView createKnowledgeDomainsTree(Composite container)
+    private CommonTreeView createKnowledgeDomainsTree(final Composite container)
     {
         Group group = new Group(container, SWT.SHADOW_OUT | SWT.TOP | SWT.H_SCROLL | SWT.V_SCROLL);
         group.setLayoutData(new GridData(GridData.FILL_BOTH));
         group.setLayout(new GridLayout());
         group.setText(Resources.Frames.Knowledge.Texts.KNOW_DOMAINS.getText());
-
-        CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getDomainRootData(false));
+        final CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getDomainRootData(false));
+        
         showProcessView.createPartControl(group);
+        
+//        defaultLeaf = new DefaultLeaf(GlobalConstants.DUMMY_ID, Resources.Frames.Tree.Texts.LOAD_TREE_NODE.getText());
+//        new Thread(new Runnable() {
+//            public void run() {
+////               while (true) {
+////                  try { Thread.sleep(1000); } catch (Exception e) { }
+//                defaultLeaf = knowledgeStructureController.getDomainRootData(true);
+//
+//               }
+////            }
+//         }).start();
+  
+        
+        Runnable r = new Runnable() {
+            public void run() {
+                showProcessView.reloadTree(knowledgeStructureController.getDomainRootData(true));
+                container.redraw();
+
+            }
+           };
+            
+           if(Display.getCurrent() != null) {
+               r.run();
+           }
+           else {
+               Display.getDefault().asyncExec(r);
+           }
+
         return showProcessView;
     }
 
@@ -145,15 +178,31 @@ public class KnowledgeStructureView extends DefaultView
      * 
      * @param container Composite to add the widget
      */
-    private CommonTreeView createKnowledgeObjectsTree(Composite container)
+    private CommonTreeView createKnowledgeObjectsTree(final Composite container)
     {
         Group group = new Group(container, SWT.SHADOW_OUT | SWT.TOP | SWT.H_SCROLL | SWT.V_SCROLL);
         group.setLayoutData(new GridData(GridData.FILL_BOTH));
         group.setLayout(new GridLayout());
         group.setText(Resources.Frames.Knowledge.Texts.KNOW_OBJECTS.getText());
 
-        CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getKnowledgeObjectRootData(false));
+        final CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getKnowledgeObjectRootData(false));
         showProcessView.createPartControl(group);
+
+        Runnable r = new Runnable() {
+            public void run() {
+                showProcessView.reloadTree(knowledgeStructureController.getKnowledgeObjectRootData(true));
+                container.redraw();
+
+            }
+           };
+            
+           if(Display.getCurrent() != null) {
+               r.run();
+           }
+           else {
+               Display.getDefault().asyncExec(r);
+           }
+
         return showProcessView;
 
     }
@@ -163,16 +212,32 @@ public class KnowledgeStructureView extends DefaultView
      * 
      * @param container Composite to add the widget
      */
-    private CommonTreeView createProcessElementsTree(Composite container)
+    private CommonTreeView createProcessElementsTree(final Composite container)
     {
         Group group = new Group(container, SWT.SHADOW_OUT | SWT.TOP | SWT.H_SCROLL | SWT.V_SCROLL);
         group.setLayoutData(new GridData(GridData.FILL_BOTH));
         group.setLayout(new GridLayout());
         group.setText(Resources.Frames.Global.Texts.PROCESS_ELEMENTS.getText());
 
-        CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getProcessElementRootData(false));
+        final CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getProcessElementRootData(false));
 
         showProcessView.createPartControl(group);
+        
+        Runnable r = new Runnable() {
+            public void run() {
+                showProcessView.reloadTree(knowledgeStructureController.getProcessElementRootData(true));
+                container.redraw();
+
+            }
+           };
+            
+           if(Display.getCurrent() != null) {
+               r.run();
+           }
+           else {
+               Display.getDefault().asyncExec(r);
+           }
+
         return showProcessView;
     }
 
@@ -181,15 +246,31 @@ public class KnowledgeStructureView extends DefaultView
      * 
      * @param container Composite to add the widget
      */
-    private CommonTreeView createOrganizationalElementsTree(Composite container)
+    private CommonTreeView createOrganizationalElementsTree(final Composite container)
     {
         Group group = new Group(container, SWT.SHADOW_OUT | SWT.TOP | SWT.H_SCROLL | SWT.V_SCROLL);
         group.setLayoutData(new GridData(GridData.FILL_BOTH));
         group.setLayout(new GridLayout());
         group.setText(Resources.Frames.Global.Texts.ORGANISATION_ELEMENTS.getText());
 
-        CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getOrganiazationElementRootData(false));
+        final CommonTreeView showProcessView = new CommonTreeView(knowledgeStructureController.getOrganiazationElementRootData(false));
         showProcessView.createPartControl(group);
+        
+        Runnable r = new Runnable() {
+            public void run() {
+                showProcessView.reloadTree(knowledgeStructureController.getOrganiazationElementRootData(true));
+                container.redraw();
+
+            }
+           };
+            
+           if(Display.getCurrent() != null) {
+               r.run();
+           }
+           else {
+               Display.getDefault().asyncExec(r);
+           }
+
         return showProcessView;
     }
 
